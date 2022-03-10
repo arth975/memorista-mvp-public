@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Text"/>
+    <style name="Text.CurrentDate">
+        <item name="android:textSize">@dimen/font_current_day</item>
+        <item name="android:textColor">@color/font_current_date</item>
+        <item name="android:fontFamily">@font/redressed_regular</item>
+        <item name="android:letterSpacing">0.05</item>
+    </style>
+    <style name="Text.CurrentDate.WeekDay">
+        <item name="android:textColor">@color/font_header</item>
+    </style>
+
+    <style name="ImageButton">
+        <item name="android:elevation">@dimen/shadow_elevation</item>
+        <item name="android:background">@drawable/bg_image_button</item>
+
+        <item name="android:outlineAmbientShadowColor">@color/shadow_ambient</item>
+        <item name="android:outlineSpotShadowColor">@color/shadow_spot</item>
+    </style>
+
+    <style name="Card" parent="Widget.MaterialComponents.CardView">
+        <item name="cardBackgroundColor">@color/bg_main</item>
+    </style>
+
+    <!--Start: Main Screen-->
+    <style name="Main"/>
+    <style name="Main.Text"/>
+    <style name="Main.Text.Date">
+        <item name="android:textSize">@dimen/font_header</item>
+        <item name="android:textColor">@color/font_secondary_1</item>
+        <item name="android:fontFamily">@font/lora_medium</item>
+    </style>
+
+    <style name="Main.TabLayout" parent="Widget.MaterialComponents.TabLayout">
+        <item name="android:background">@android:color/transparent</item>
+
+        <item name="tabMode">fixed</item>
+        <item name="tabGravity">center</item>
+        <item name="tabTextColor">@color/font_secondary_4</item>
+        <item name="tabSelectedTextColor">@color/font_header</item>
+        <item name="tabTextAppearance">@style/Main.TextAppearance.TabLabel</item>
+        <item name="tabPaddingBottom">0dp</item>
+
+        <item name="tabIndicatorFullWidth">true</item>
+        <item name="tabIndicatorHeight">2dp</item>
+        <item name="tabIndicatorColor">@color/tab_indicator_color</item>
+    </style>
+
+    <style name="Main.TextAppearance" parent="TextAppearance.AppCompat"/>
+    <style name="Main.TextAppearance.TabLabel">
+        <item name="textStartPadding">@dimen/font_main_tab_layout</item>
+    </style>
+    <!--End: Main Screen-->
+
+    <!--Start: Task Item-->
+    <style name="TaskItem"/>
+    <style name="TaskItem.Text"/>
+    <style name="TaskItem.Card" parent="Card">
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">@dimen/shadow_elevation</item>
+
+        <item name="android:outlineAmbientShadowColor">@color/shadow_ambient</item>
+        <item name="android:outlineSpotShadowColor">@color/shadow_spot</item>
+    </style>
+
+    <style name="TaskItem.Text.Time">
+        <item name="android:textSize">@dimen/task_item_time_font</item>
+        <item name="android:textColor">@color/font_secondary_2</item>
+    </style>
+
+    <style name="TaskItem.Text.Title">
+        <item name="android:textSize">@dimen/font_header</item>
+        <item name="android:textColor">@color/font_header</item>
+        <item name="android:letterSpacing">0.02</item>
+        <item name="android:fontFamily">@font/lora_medium</item>
+        <item name="android:lines">1</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="TaskItem.Text.Description">
+        <item name="android:textSize">@dimen/task_item_description_font</item>
+        <item name="android:textColor">@color/font_secondary_2</item>
+        <item name="android:letterSpacing">0.02</item>
+        <item name="android:lines">1</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="TaskItem.CheckBox">
+        <item name="android:padding">0dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:minHeight">0dp</item>
+    </style>
+    <!--End: Task Item-->
+
+</resources>

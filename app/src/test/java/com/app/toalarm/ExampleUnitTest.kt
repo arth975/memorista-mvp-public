@@ -1,4 +1,4 @@
-package com.app.talarm
+package com.app.toalarm
 
 import org.junit.Test
 

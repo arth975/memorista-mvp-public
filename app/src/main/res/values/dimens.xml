@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="font_header">16sp</dimen>
+    <dimen name="font_current_day">14sp</dimen>
+    <dimen name="font_calendar_day">14sp</dimen>
+    <dimen name="font_calendar_weekday">10sp</dimen>
+    <dimen name="font_main_tab_layout">14sp</dimen>
+
+    <dimen name="guide_main_start">0.04</dimen>
+    <dimen name="guide_main_end">0.96</dimen>
+
+    <dimen name="image_button_width">30dp</dimen>
+    <dimen name="image_button_height">30dp</dimen>
+
+    <dimen name="shadow_elevation">6dp</dimen>
+
+    <dimen name="task_item_padding_start">11dp</dimen>
+    <dimen name="task_item_padding_end">20dp</dimen>
+    <dimen name="task_item_padding_vertical">16dp</dimen>
+    <dimen name="task_item_time_top_margin">6sp</dimen>
+    <dimen name="task_item_time_font">10sp</dimen>
+    <dimen name="task_item_description_font">11sp</dimen>
+    <dimen name="task_item_gl_top">0.24</dimen>
+    <dimen name="task_item_gl_bottom">0.76</dimen>
+    <dimen name="task_item_edit_button_size">22dp</dimen>
+    <dimen name="task_item_checkbox_size">16dp</dimen>
+    <dimen name="task_item_margin_text_horizontal">10dp</dimen>
+</resources>

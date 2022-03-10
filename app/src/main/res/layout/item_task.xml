@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/TaskItem.Card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="15dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/task_item_padding_start"
+        android:paddingEnd="@dimen/task_item_padding_end">
+
+        <!--Task Alarm Time-->
+        <TextView
+            android:id="@+id/tv_time"
+            style="@style/TaskItem.Text.Time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="16:00"
+            app:layout_constraintBottom_toTopOf="@+id/gl_main_top"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!--Task Title-->
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/TaskItem.Text.Title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/task_item_margin_text_horizontal"
+            android:text="Meeting:  UX Case"
+            app:layout_constraintEnd_toStartOf="@+id/imageButton"
+            app:layout_constraintStart_toEndOf="@+id/materialCheckBox"
+            app:layout_constraintTop_toTopOf="@+id/gl_main_top" />
+
+        <!--Task Description-->
+        <TextView
+            android:id="@+id/tv_description"
+            style="@style/TaskItem.Text.Description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Discuss Milton website"
+            app:layout_constraintBottom_toTopOf="@+id/gl_main_bottom"
+            app:layout_constraintEnd_toEndOf="@+id/tv_title"
+            app:layout_constraintStart_toStartOf="@+id/tv_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_title" />
+
+        <!--Edit Button-->
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="@dimen/task_item_edit_button_size"
+            android:layout_height="@dimen/task_item_edit_button_size"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/content_description"
+            android:src="@drawable/ic_edit"
+            app:layout_constraintBottom_toBottomOf="@id/gl_main_bottom"
+            app:layout_constraintEnd_toEndOf="@id/tv_time"
+            app:layout_constraintTop_toTopOf="@id/gl_main_top"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/materialCheckBox"
+            style="@style/TaskItem.CheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/gl_main_bottom"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/gl_main_top" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_main_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="@dimen/task_item_gl_top" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_main_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="@dimen/task_item_gl_bottom" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

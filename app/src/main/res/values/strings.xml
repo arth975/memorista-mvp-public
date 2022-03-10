@@ -1,3 +1,14 @@
 <resources>
-    <string name="app_name">t-alarm</string>
+    <string name="app_name">To-Alarm</string>
+    <string name="content_description">Image</string>
+
+    <string name="task_status_tab_all">All</string>
+    <string name="task_status_tab_completed">Completed</string>
+    <string name="task_status_tab_active">Active</string>
+
+    <string-array name="task_status_tab_titles">
+        <item>All</item>
+        <item>Completed</item>
+        <item>Active</item>
+    </string-array>
 </resources>

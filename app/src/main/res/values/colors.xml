@@ -7,4 +7,30 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="primary">#8CF899BB</color>
+    <color name="primaryVariant">#8CFAD8E4</color>
+    <color name="onPrimary">#ffffff</color>
+
+    <color name="main">#1E1D1D</color>
+
+    <color name="font_header">#1E1D1D</color>
+    <color name="font_secondary_1">#555353</color>
+    <color name="font_secondary_2">#878787</color>
+    <color name="font_secondary_3">#CECCCC</color>
+    <color name="font_secondary_4">#B9BCBA</color>
+    <color name="font_current_date">#999797</color>
+
+    <color name="bg_main">#ffffff</color>
+    <color name="bg_secondary_1">#EAEAEA</color>
+    <color name="bg_secondary_2">#F0F0F0</color>
+    <color name="bg_secondary_3">#F1F1F1</color>
+    <color name="bg_secondary_4">#FAFAFA</color>
+
+    <color name="accent_1">#8CF899BB</color>
+    <color name="accent_2">#8CFAD8E4</color>
+
+    <color name="shadow_ambient">#9B9B9B</color>
+    <color name="shadow_spot">#B7555353</color>
+    <color name="tab_indicator_color">#F899BB</color>
 </resources>
