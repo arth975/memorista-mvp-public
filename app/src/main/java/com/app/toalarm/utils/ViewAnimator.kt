@@ -12,7 +12,7 @@ import android.view.View
  */
 object ViewAnimator {
 
-    const val DURATION = 300L
+    const val DURATION = 200L
 
     private const val HIDE_ALPHA = 0f
     private const val SHOW_ALPHA = 1f
@@ -35,10 +35,10 @@ object ViewAnimator {
 
     fun fadeOut(view: View?, duration: Long = DURATION) {
         view?.apply {
-            alpha = HIDE_ALPHA
+            alpha = SHOW_ALPHA
             visibility = View.VISIBLE
             animate()
-                .alpha(SHOW_ALPHA)
+                .alpha(HIDE_ALPHA)
                 .setDuration(duration)
                 .setListener(object : AnimatorListenerAdapter() {
                     override fun onAnimationEnd(animation: Animator?) {

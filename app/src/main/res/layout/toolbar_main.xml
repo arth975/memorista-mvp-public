@@ -7,6 +7,7 @@
     <!--Task categories spinner-->
     <Spinner
         android:id="@+id/spinner_categories"
+        style="@style/Spinner.Category"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="21dp"
@@ -21,7 +22,6 @@
         style="@style/Text.CurrentDate.WeekDay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Thursday,  "
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/tv_date"
         app:layout_constraintTop_toTopOf="parent" />
@@ -31,7 +31,6 @@
         style="@style/Text.CurrentDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="22th February"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/gl_main_end"
         app:layout_constraintTop_toTopOf="parent" />
@@ -39,16 +38,14 @@
 
     <ImageButton
         android:id="@+id/btn_back"
+        style="@style/Main.Toolbar.BackButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
         android:contentDescription="@string/content_description"
-        android:src="@drawable/ic_back"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@id/gl_main_start"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/main" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/gl_main_start"

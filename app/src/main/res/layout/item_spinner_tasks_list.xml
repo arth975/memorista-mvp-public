@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="@dimen/item_spinner_tasks_list_padding_vertical">
+
+    <TextView
+        android:id="@+id/tv_list_name"
+        style="@style/TasksListItem.NameText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintEnd_toStartOf="@id/img_arrow_down"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_arrow_down"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_arrow_down"
+        app:layout_constraintBottom_toBottomOf="@id/tv_list_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_list_name" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -27,7 +27,7 @@
     </style>
 
     <style name="GeneralTextView" parent="android:Widget.TextView">
-        <item name="android:textColor">@color/font_header</item>
+        <item name="android:textColor">@color/font_primary</item>
         <item name="android:textSize">@dimen/font_header</item>
         <item name="android:fontFamily">@font/lora_regular</item>
     </style>

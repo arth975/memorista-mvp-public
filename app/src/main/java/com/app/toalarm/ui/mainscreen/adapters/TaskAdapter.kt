@@ -12,8 +12,10 @@ import com.app.toalarm.databinding.ItemTaskBinding
  * @Author: Arthur Galoyan
  * @Date: 3/10/2022 11:27 PM
  */
-class TaskAdapter(private val tasks: ArrayList<Task>) :
-    RecyclerView.Adapter<TaskAdapter.ItemViewHolder>() {
+class TaskAdapter(
+    private val tasks: ArrayList<Task>,
+    private val onItemClick: (Task?) -> Unit
+) : RecyclerView.Adapter<TaskAdapter.ItemViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         return ItemViewHolder(
@@ -26,11 +28,15 @@ class TaskAdapter(private val tasks: ArrayList<Task>) :
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-
+        holder.bind(tasks[position])
     }
 
     override fun getItemCount(): Int = tasks.size
 
     inner class ItemViewHolder(private val binding: ItemTaskBinding) :
-        RecyclerView.ViewHolder(binding.root)
+        RecyclerView.ViewHolder(binding.root){
+            fun bind(task: Task){
+                binding.btnEdit.setOnClickListener { onItemClick(task) }
+            }
+        }
 }

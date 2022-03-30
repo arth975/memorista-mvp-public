@@ -11,4 +11,11 @@
         <item>Completed</item>
         <item>Active</item>
     </string-array>
+
+    <string name="new_task_title">New Task</string>
+    <string name="new_task_title_notes">Notes</string>
+    <string name="new_task_title_date">Date</string>
+    <string name="new_task_title_category">Category</string>
+    <string name="new_task_title_alarm">Alarm</string>
+    <string name="new_task_no_selected_date">No selected date</string>
 </resources>

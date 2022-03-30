@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.navigation.findNavController
 import com.app.toalarm.R
 import com.app.toalarm.databinding.ActivityMainBinding
+import com.app.toalarm.ui.mainscreen.adapters.TasksListSpinnerAdapter
 import com.app.toalarm.utils.ViewAnimator
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
@@ -14,20 +15,28 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
+    private val taskLists = arrayListOf(
+        "Default List",
+        "Work",
+        "Fitnes",
+        "Custom list"
+    )
+
     private var mBinding: ActivityMainBinding? = null
 
     private val mCurrentDate = LocalDate.now()
     private val mLocale = Locale.ENGLISH
-    private val mWeekDayFormatter = DateTimeFormatter.ofPattern("dddd", mLocale)
+    private val mWeekDayFormatter = DateTimeFormatter.ofPattern("EEEE", mLocale)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         mBinding = ActivityMainBinding.inflate(layoutInflater).apply {
-            toolbar.btnBack.setOnClickListener { findNavController(R.id.nav_host_fragment).navigateUp() }
+            toolbar.btnBack.setOnClickListener { onBackButtonClick() }
         }
-        setupCurrentDate()
 
+        initTasksListSpinner()
+        setupCurrentDate()
         setContentView(mBinding?.root)
     }
 
@@ -41,6 +50,15 @@ class MainActivity : AppCompatActivity() {
         mBinding?.let {
             ViewAnimator.crossFade(it.toolbar.spinnerCategories, it.toolbar.btnBack)
         }
+    }
+
+    fun initTasksListSpinner(){
+        mBinding?.toolbar?.spinnerCategories?.adapter = TasksListSpinnerAdapter(this, taskLists)
+    }
+
+    private fun onBackButtonClick(){
+        showCategoriesSpinner()
+        findNavController(R.id.nav_host_fragment).navigateUp()
     }
 
     @SuppressLint("SetTextI18n")

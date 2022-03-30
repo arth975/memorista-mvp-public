@@ -12,17 +12,42 @@
     <dimen name="image_button_width">30dp</dimen>
     <dimen name="image_button_height">30dp</dimen>
 
-    <dimen name="shadow_elevation">6dp</dimen>
+    <dimen name="shadow_elevation_card">6dp</dimen>
+    <dimen name="shadow_elevation_button">5dp</dimen>
+    <dimen name="shadow_translation_z">1dp</dimen>
+
+    <dimen name="border_radius_image_button">8dp</dimen>
+    <dimen name="border_radius_card_item">16dp</dimen>
+    <dimen name="border_radius_tasks_list_spinner_popup">12dp</dimen>
 
     <dimen name="task_item_padding_start">11dp</dimen>
     <dimen name="task_item_padding_end">20dp</dimen>
     <dimen name="task_item_padding_vertical">16dp</dimen>
-    <dimen name="task_item_time_top_margin">6sp</dimen>
-    <dimen name="task_item_time_font">10sp</dimen>
-    <dimen name="task_item_description_font">11sp</dimen>
+    <dimen name="task_item_font_time">10sp</dimen>
+    <dimen name="task_item_font_description">11sp</dimen>
+    <dimen name="task_item_size_edit_button">22dp</dimen>
+    <dimen name="task_item_size_checkbox">16dp</dimen>
+    <dimen name="task_item_margin_text_horizontal">10dp</dimen>
+    <dimen name="task_item_margin_top">15dp</dimen>
+    <dimen name="task_item_margin_time_top">6sp</dimen>
     <dimen name="task_item_gl_top">0.24</dimen>
     <dimen name="task_item_gl_bottom">0.76</dimen>
-    <dimen name="task_item_edit_button_size">22dp</dimen>
-    <dimen name="task_item_checkbox_size">16dp</dimen>
-    <dimen name="task_item_margin_text_horizontal">10dp</dimen>
+
+    <dimen name="item_spinner_tasks_list_font_size">16sp</dimen>
+    <dimen name="item_spinner_tasks_list_dropdown_font_size">12sp</dimen>
+    <dimen name="item_spinner_tasks_list_padding_vertical">7dp</dimen>
+    <dimen name="item_spinner_tasks_list_spinner_dropdown_margin_horizontal">12dp</dimen>
+    <dimen name="item_spinner_tasks_list_spinner_line_height">0.6dp</dimen>
+
+    <dimen name="fab_add_new_task_margin_bottom">36dp</dimen>
+    <dimen name="fab_add_new_task_margin_size">53dp</dimen>
+
+    <dimen name="new_task_margin_title_bottom">10dp</dimen>
+    <dimen name="new_task_margin_title_Top">17dp</dimen>
+    <dimen name="new_task_margin_selected_date_start">14dp</dimen>
+    <dimen name="new_task_margin_selected_date_underline_end">14dp</dimen>
+    <dimen name="new_task_font_et">14sp</dimen>
+    <dimen name="new_task_font_selected_date">14sp</dimen>
+    <dimen name="new_task_underline_height">0.6dp</dimen>
+    <dimen name="new_task_underline_margin_top">5dp</dimen>
 </resources>

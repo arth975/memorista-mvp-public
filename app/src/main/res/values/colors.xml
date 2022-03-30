@@ -14,7 +14,7 @@
 
     <color name="main">#1E1D1D</color>
 
-    <color name="font_header">#1E1D1D</color>
+    <color name="font_primary">#1E1D1D</color>
     <color name="font_secondary_1">#555353</color>
     <color name="font_secondary_2">#878787</color>
     <color name="font_secondary_3">#CECCCC</color>
@@ -30,7 +30,13 @@
     <color name="accent_1">#8CF899BB</color>
     <color name="accent_2">#8CFAD8E4</color>
 
-    <color name="shadow_ambient">#9B9B9B</color>
-    <color name="shadow_spot">#B7555353</color>
+    <color name="shadow_ambient">#AEC6C6C6</color>
+    <color name="shadow_spot">#B2B6B5B5</color>
+
     <color name="tab_indicator_color">#F899BB</color>
+    <color name="fab_background">#F899BB</color>
+    <color name="fab_ripple">#5CF899BB</color>
+
+    <color name="underline">#555353</color>
+    <color name="ripple">#878787</color>
 </resources>
