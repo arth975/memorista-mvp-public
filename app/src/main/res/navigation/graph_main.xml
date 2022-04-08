@@ -18,6 +18,6 @@
     </fragment>
     <fragment
         android:id="@+id/addNewTaskFragment"
-        android:name="com.app.toalarm.ui.newtaskscreen.AddNewTaskFragment"
+        android:name="com.app.toalarm.ui.addtaskscreen.AddTaskFragment"
         android:label="AddNewTaskFragment" />
 </navigation>

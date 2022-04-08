@@ -1,4 +1,4 @@
-package com.app.toalarm.ui.newtaskscreen
+package com.app.toalarm.ui.addtaskscreen
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,7 +14,7 @@ import com.app.toalarm.ui.mainscreen.adapters.TasksListSpinnerAdapter
  * @Author: Arthur Galoyan
  * @Date: 3/9/2022 11:14 PM
  */
-class AddNewTaskFragment: Fragment() {
+class AddTaskFragment: Fragment() {
 
     private val taskLists = arrayListOf(
         "Default List",
