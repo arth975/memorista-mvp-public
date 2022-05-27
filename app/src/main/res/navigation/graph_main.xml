@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/graph_main"
     app:startDestination="@id/mainFragment">
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.app.toalarm.ui.mainscreen.MainFragment"
+        android:name="com.app.toalarm.ui.fragments.HomeFragment"
+        tools:layout="@layout/fragment_home"
         android:label="MainFragment">
         <action
             android:id="@+id/action_mainFragment_to_addNewTaskFragment"
@@ -15,9 +17,16 @@
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
             app:popExitAnim="@anim/slide_out" />
+        <action
+            android:id="@+id/action_mainFragment_to_createCategoryDialogFragment"
+            app:destination="@id/createCategoryDialogFragment" />
     </fragment>
     <fragment
         android:id="@+id/addNewTaskFragment"
-        android:name="com.app.toalarm.ui.addtaskscreen.AddTaskFragment"
+        android:name="com.app.toalarm.ui.fragments.CreateTaskFragment"
         android:label="AddNewTaskFragment" />
+    <dialog
+        android:id="@+id/createCategoryDialogFragment"
+        android:name="com.app.toalarm.ui.dialogs.CreateCategoryDialogFragment"
+        android:label="CreateCategoryDialogFragment" />
 </navigation>

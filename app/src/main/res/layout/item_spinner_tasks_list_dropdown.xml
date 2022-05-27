@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingHorizontal="@dimen/item_spinner_tasks_list_spinner_dropdown_margin_horizontal">
+    android:paddingTop="@dimen/item_spinner_categories_padding_vertical"
+    android:paddingHorizontal="@dimen/item_spinner_categories_padding_horizontal">
 
     <TextView
         android:id="@+id/tv_list_name"
@@ -11,7 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="5dp"
-        android:paddingVertical="@dimen/item_spinner_tasks_list_padding_vertical"
         app:layout_constraintEnd_toStartOf="@id/img_arrow_down"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -28,9 +28,11 @@
         app:layout_constraintTop_toTopOf="@id/tv_list_name" />
 
     <View
+        android:id="@+id/underline"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/item_spinner_tasks_list_spinner_line_height"
+        android:layout_height="@dimen/item_spinner_categories_underline_height"
         android:background="@color/font_secondary_1"
+        android:layout_marginTop="@dimen/item_spinner_categories_padding_vertical"
         app:layout_constraintStart_toStartOf="@id/tv_list_name"
         app:layout_constraintTop_toBottomOf="@id/tv_list_name" />
 

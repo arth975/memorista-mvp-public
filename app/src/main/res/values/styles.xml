@@ -11,11 +11,20 @@
     </style>
 
     <style name="Text" />
+
     <style name="Text.CurrentDate">
         <item name="android:textSize">@dimen/font_current_day</item>
         <item name="android:textColor">@color/font_current_date</item>
         <item name="android:fontFamily">@font/redressed_regular</item>
         <item name="android:letterSpacing">0.05</item>
+    </style>
+
+    <style name="Text.Title">
+        <item name="android:textSize">@dimen/font_header</item>
+        <item name="android:textColor">@color/font_secondary_1</item>
+        <item name="android:fontFamily">@font/lora_bold</item>
+        <item name="fontFamily">@font/lora_bold</item>
+        <item name="android:letterSpacing">-0.02</item>
     </style>
 
     <style name="Text.CurrentDate.WeekDay">
@@ -31,17 +40,40 @@
         <item name="cardBackgroundColor">@color/bg_main</item>
     </style>
 
-    <style name="Spinner"/>
+    <style name="Spinner" />
+
     <style name="Spinner.Category" parent="Shadow">
-        <item name="android:background">@android:color/transparent</item>
+        <item name="android:background">@drawable/background_tasks_list_spinner_popup</item>
         <item name="android:popupElevation">@dimen/shadow_elevation_card</item>
         <item name="android:popupBackground">@drawable/background_tasks_list_spinner_popup</item>
+    </style>
+
+    <style name="ButtonCommon">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/font_primary</item>
+        <item name="android:background">@drawable/background_accent_gradient</item>
+        <item name="backgroundTint">@null</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:letterSpacing">0.04</item>
+        <item name="android:padding">0dp</item>
+    </style>
+
+    <style name="FabCommon">
+        <item name="backgroundTint">@color/fab_background</item>
+        <item name="rippleColor">@color/fab_ripple</item>
+        <item name="srcCompat">@drawable/ic_add</item>
+        <item name="tint">@color/white</item>
     </style>
     <!--End: General-->
 
     <!--Start: Main Screen-->
     <style name="Main" />
+
     <style name="Main.Text" />
+
     <style name="Main.Text.Date">
         <item name="android:textSize">@dimen/font_header</item>
         <item name="android:textColor">@color/font_secondary_1</item>
@@ -64,18 +96,12 @@
     </style>
 
     <style name="Main.TextAppearance" parent="TextAppearance.AppCompat" />
+
     <style name="Main.TextAppearance.TabLabel">
         <item name="textStartPadding">@dimen/font_main_tab_layout</item>
     </style>
 
-    <style name="Main.Fab">
-        <item name="backgroundTint">@color/fab_background</item>
-        <item name="rippleColor">@color/fab_ripple</item>
-        <item name="srcCompat">@drawable/ic_fab_plus</item>
-        <item name="tint">@color/white</item>
-    </style>
-
-    <style name="Main.Toolbar"/>
+    <style name="Main.Toolbar" />
     <style name="Main.Toolbar.BackButton">
         <item name="android:background">@android:color/transparent</item>
         <item name="tint">@color/main</item>
@@ -122,8 +148,9 @@
 
     <!--Start: Tasks List Spinner Item-->
     <style name="TasksListItem" />
+
     <style name="TasksListItem.NameText">
-        <item name="android:textSize">@dimen/item_spinner_tasks_list_font_size</item>
+        <item name="android:textSize">@dimen/item_spinner_categories_font_size</item>
         <item name="android:letterSpacing">0.04</item>
         <item name="android:textColor">@color/font_primary</item>
         <item name="android:lines">1</item>
@@ -131,21 +158,24 @@
     </style>
 
     <style name="TasksListItem.NameText.Dropdown">
-        <item name="android:textSize">@dimen/item_spinner_tasks_list_dropdown_font_size</item>
+        <item name="android:textSize">@dimen/item_spinner_categories_dropdown_font_size</item>
     </style>
     <!--End: Tasks List Spinner Item-->
 
     <!--Start: New Task Screen-->
-    <style name="NewTask"/>
-    <style name="NewTask.Text"/>
+    <style name="NewTask" />
+
+    <style name="NewTask.Text" />
+
     <style name="NewTask.Text.Title">
         <item name="android:textSize">@dimen/font_header</item>
         <item name="android:textColor">@color/font_secondary_1</item>
         <item name="android:fontFamily">@font/lora_bold</item>
         <item name="android:letterSpacing">-0.02</item>
     </style>
+
     <style name="NewTask.Text.Date">
-        <item name="android:textSize">@dimen/new_task_font_selected_date</item>
+        <item name="android:textSize">@dimen/create_task_font_selected_date</item>
         <item name="android:textColor">@color/font_primary</item>
         <item name="android:letterSpacing">-0.02</item>
     </style>
@@ -164,14 +194,16 @@
         <item name="android:paddingLeft">0dp</item>
         <item name="android:paddingRight">0dp</item>
         <item name="android:textColor">@color/font_secondary_1</item>
-        <item name="android:textSize">@dimen/new_task_font_et</item>
+        <item name="android:textSize">@dimen/create_task_font_et</item>
         <item name="android:inputType">text</item>
         <item name="android:gravity">top|left</item>
     </style>
+
     <style name="NewTask.EditText.Title">
         <item name="android:lines">1</item>
         <item name="android:maxLines">1</item>
     </style>
+
     <style name="NewTask.EditText.Notes">
         <item name="android:inputType">textMultiLine</item>
         <item name="android:maxLines">8</item>
@@ -179,8 +211,26 @@
 
     <!--End: New Task Screen-->
 
+    <!--Start: Create Category Screen-->
+    <style name="CreateCategory" />
+
+    <style name="CreateCategory.NameTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="android:hint">@string/create_category_hint</item>
+        <item name="android:textColorHint">@color/font_secondary_1</item>
+    </style>
+
+    <style name="CreateCategory.NameEditText">
+        <item name="android:letterSpacing">0.04</item>
+        <item name="android:textColor">@color/font_primary</item>
+        <item name="android:textSize">@dimen/create_category_dialog_name_edit_text_size</item>
+        <item name="android:paddingStart">@dimen/create_category_dialog_name_edit_padding_start
+        </item>
+    </style>
+    <!--End: Create Category Screen-->
+
     <!--Start: ShapeAppearanceOverlays-->
-    <style name="ShapeAppearance"/>
+    <style name="ShapeAppearance" />
+
     <style name="ShapeAppearance.Circle">
         <item name="cornerSize">50%</item>
     </style>

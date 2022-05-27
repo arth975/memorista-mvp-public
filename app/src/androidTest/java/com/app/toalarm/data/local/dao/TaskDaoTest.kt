@@ -5,17 +5,13 @@ import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.SmallTest
 import com.app.toalarm.data.local.LocalDatabase
-import com.app.toalarm.data.local.entities.Task
-import com.google.common.truth.Truth.assertThat
+import com.app.toalarm.data.local.entities.CategoryEntity
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.take
-import kotlinx.coroutines.flow.toList
-import kotlinx.coroutines.test.runTest
+import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import java.time.LocalDateTime
 
 /**
  * @ClassName: TaskDaoTest
@@ -29,9 +25,9 @@ import java.time.LocalDateTime
 class TaskDaoTest {
 
     private lateinit var mDatabase: LocalDatabase
-    private lateinit var mTaskDao: TaskDao
+    private lateinit var mCategoryDao: CategoryDao
 
-    private val mTaskItem = Task("title", "note", LocalDateTime.now(), id = 1)
+    //private val mTaskItem = TaskEntity("title", "note", LocalDateTime.now(), id = 1)
 
     @Before
     fun setup() {
@@ -39,7 +35,7 @@ class TaskDaoTest {
             ApplicationProvider.getApplicationContext(),
             LocalDatabase::class.java
         ).allowMainThreadQueries().build()
-        mTaskDao = mDatabase.getTaskDao()
+        mCategoryDao = mDatabase.getCategoryDao()
     }
 
     @After
@@ -47,18 +43,29 @@ class TaskDaoTest {
         mDatabase.close()
     }
 
-    private suspend fun assertThatContains(taskItem: Task) {
+    @Test
+    fun test() = runBlocking {
+        val categoryEntity = CategoryEntity(
+            name = "Category",
+            id = 1
+        )
+        //mCategoryDao.insert(categoryEntity)
+        val result = mCategoryDao.getAllCategories()
+    }
+/*
+
+    private suspend fun assertThatContains(taskItem: TaskEntity) {
         val allTaskItems = mTaskDao.observeAllTaskItems().take(1).toList()
         assertThat(allTaskItems[0]).contains(taskItem)
     }
 
-    private suspend fun insertTask(): Task {
+    private suspend fun insertTask(): TaskEntity {
         val taskItem = mTaskItem
         mTaskDao.insertTaskItem(taskItem)
         return taskItem
     }
 
-    private suspend fun insertTaskWithTimestamp(): Task {
+    private suspend fun insertTaskWithTimestamp(): TaskEntity {
         val taskItem = mTaskItem
         mTaskDao.insertTaskItemWithTimestamp(taskItem)
         return taskItem
@@ -98,5 +105,6 @@ class TaskDaoTest {
         val allTaskItems = mTaskDao.observeAllTaskItems().take(1).toList()
         assertThat(allTaskItems[0]).doesNotContain(taskItem)
     }
+*/
 
 }

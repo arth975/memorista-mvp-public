@@ -16,38 +16,56 @@
     <dimen name="shadow_elevation_button">5dp</dimen>
     <dimen name="shadow_translation_z">1dp</dimen>
 
-    <dimen name="border_radius_image_button">8dp</dimen>
     <dimen name="border_radius_card_item">16dp</dimen>
-    <dimen name="border_radius_tasks_list_spinner_popup">12dp</dimen>
+    <dimen name="border_radius_image_button">8dp</dimen>
+    <dimen name="border_radius_button_common">12dp</dimen>
+    <dimen name="border_radius_create_category_dialog">12dp</dimen>
+    <dimen name="border_radius_categories_spinner_popup">12dp</dimen>
 
-    <dimen name="task_item_padding_start">11dp</dimen>
     <dimen name="task_item_padding_end">20dp</dimen>
+    <dimen name="task_item_padding_start">11dp</dimen>
     <dimen name="task_item_padding_vertical">16dp</dimen>
     <dimen name="task_item_font_time">10sp</dimen>
     <dimen name="task_item_font_description">11sp</dimen>
-    <dimen name="task_item_size_edit_button">22dp</dimen>
     <dimen name="task_item_size_checkbox">16dp</dimen>
-    <dimen name="task_item_margin_text_horizontal">10dp</dimen>
+    <dimen name="task_item_size_edit_button">22dp</dimen>
     <dimen name="task_item_margin_top">15dp</dimen>
     <dimen name="task_item_margin_time_top">6sp</dimen>
+    <dimen name="task_item_margin_text_horizontal">10dp</dimen>
     <dimen name="task_item_gl_top">0.24</dimen>
     <dimen name="task_item_gl_bottom">0.76</dimen>
 
-    <dimen name="item_spinner_tasks_list_font_size">16sp</dimen>
-    <dimen name="item_spinner_tasks_list_dropdown_font_size">12sp</dimen>
-    <dimen name="item_spinner_tasks_list_padding_vertical">7dp</dimen>
-    <dimen name="item_spinner_tasks_list_spinner_dropdown_margin_horizontal">12dp</dimen>
-    <dimen name="item_spinner_tasks_list_spinner_line_height">0.6dp</dimen>
+    <dimen name="item_spinner_categories_font_size">16sp</dimen>
+    <dimen name="item_spinner_categories_padding_vertical">7dp</dimen>
+    <dimen name="item_spinner_categories_underline_height">0.6dp</dimen>
+    <dimen name="item_spinner_categories_padding_horizontal">12dp</dimen>
+    <dimen name="item_spinner_categories_dropdown_font_size">16sp</dimen>
 
-    <dimen name="fab_add_new_task_margin_bottom">36dp</dimen>
-    <dimen name="fab_add_new_task_margin_size">53dp</dimen>
+    <dimen name="fab_margin_bottom">36dp</dimen>
+    <dimen name="fab_custom_size">53dp</dimen>
 
-    <dimen name="new_task_margin_title_bottom">10dp</dimen>
-    <dimen name="new_task_margin_title_Top">17dp</dimen>
-    <dimen name="new_task_margin_selected_date_start">14dp</dimen>
-    <dimen name="new_task_margin_selected_date_underline_end">14dp</dimen>
-    <dimen name="new_task_font_et">14sp</dimen>
-    <dimen name="new_task_font_selected_date">14sp</dimen>
-    <dimen name="new_task_underline_height">0.6dp</dimen>
-    <dimen name="new_task_underline_margin_top">5dp</dimen>
+    <dimen name="create_task_margin_title_bottom">10dp</dimen>
+    <dimen name="create_task_margin_title_Top">17dp</dimen>
+    <dimen name="create_task_margin_selected_date_start">14dp</dimen>
+    <dimen name="create_task_margin_selected_date_underline_end">14dp</dimen>
+    <dimen name="create_task_font_et">14sp</dimen>
+    <dimen name="create_task_font_selected_date">14sp</dimen>
+    <dimen name="create_task_underline_height">0.6dp</dimen>
+    <dimen name="create_task_underline_margin_top">5dp</dimen>
+
+    <dimen name="home_categories_margin_top">12dp</dimen>
+    <dimen name="home_categories_margin_spinner_end">15dp</dimen>
+    <dimen name="home_margin_tab_layout_top">17dp</dimen>
+    <dimen name="home_margin_view_pager_top">10dp</dimen>
+    <dimen name="home_new_category_button_width">70dp</dimen>
+    <dimen name="home_new_category_button_text_size">15sp</dimen>
+
+    <dimen name="create_category_dialog_name_edit_text_size">12sp</dimen>
+    <dimen name="create_category_dialog_name_edit_padding_start">10dp</dimen>
+    <dimen name="create_category_dialog_padding">17dp</dimen>
+    <dimen name="create_category_dialog_margin_horizontal">40dp</dimen>
+    <dimen name="create_category_dialog_name_edit_text_margin_top">4dp</dimen>
+    <dimen name="create_category_dialog_button_create_height">32dp</dimen>
+    <dimen name="create_category_dialog_button_create_margin_top">34dp</dimen>
+    <dimen name="create_task_margin_title_top">20dp</dimen>
 </resources>

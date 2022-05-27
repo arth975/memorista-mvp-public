@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingVertical="@dimen/item_spinner_tasks_list_padding_vertical">
+    android:paddingVertical="@dimen/item_spinner_categories_padding_vertical"
+    android:paddingHorizontal="@dimen/item_spinner_categories_padding_horizontal">
 
     <TextView
         android:id="@+id/tv_list_name"
@@ -22,6 +23,7 @@
         android:src="@drawable/ic_arrow_down"
         app:layout_constraintBottom_toBottomOf="@id/tv_list_name"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tv_list_name" />
+        app:layout_constraintTop_toTopOf="@id/tv_list_name"
+        android:contentDescription="@string/content_description" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

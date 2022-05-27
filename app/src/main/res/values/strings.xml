@@ -2,6 +2,8 @@
     <string name="app_name">To-Alarm</string>
     <string name="content_description">Image</string>
 
+    <string name="categories_failed_message">Failed to load categories</string>
+
     <string name="task_status_tab_all">All</string>
     <string name="task_status_tab_completed">Completed</string>
     <string name="task_status_tab_active">Active</string>
@@ -15,7 +17,14 @@
     <string name="new_task_title">New Task</string>
     <string name="new_task_title_notes">Notes</string>
     <string name="new_task_title_date">Date</string>
+    <string name="new_task_title_time">Time</string>
     <string name="new_task_title_category">Category</string>
     <string name="new_task_title_alarm">Alarm</string>
     <string name="new_task_no_selected_date">No selected date</string>
+
+    <string name="button_new">Create</string>
+
+    <string name="create_category_title">New Category</string>
+    <string name="create_category_hint">Category name</string>
+    <string name="button_create">Create</string>
 </resources>

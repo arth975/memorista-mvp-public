@@ -3,11 +3,12 @@ package com.app.toalarm.ui
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.navigation.findNavController
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupWithNavController
 import com.app.toalarm.R
 import com.app.toalarm.databinding.ActivityMainBinding
-import com.app.toalarm.ui.mainscreen.adapters.TasksListSpinnerAdapter
-import com.app.toalarm.utils.ViewAnimator
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.time.format.TextStyle
@@ -15,14 +16,8 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    private val taskLists = arrayListOf(
-        "Default List",
-        "Work",
-        "Fitnes",
-        "Custom list"
-    )
-
     private var mBinding: ActivityMainBinding? = null
+    private lateinit var mNavController: NavController
 
     private val mCurrentDate = LocalDate.now()
     private val mLocale = Locale.ENGLISH
@@ -31,34 +26,22 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        mBinding = ActivityMainBinding.inflate(layoutInflater).apply {
-            toolbar.btnBack.setOnClickListener { onBackButtonClick() }
-        }
-
-        initTasksListSpinner()
-        setupCurrentDate()
+        mBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mBinding?.root)
+        setupToolbar()
     }
 
-    fun showBackButton() {
-        mBinding?.let {
-            ViewAnimator.crossFade(it.toolbar.btnBack, it.toolbar.spinnerCategories)
-        }
+    private fun setupToolbar() {
+        setupNavController()
+        setupCurrentDate()
+        val appBarConfiguration = AppBarConfiguration(mNavController.graph)
+        mBinding?.toolbar?.root?.setupWithNavController(mNavController, appBarConfiguration)
     }
 
-    fun showCategoriesSpinner() {
-        mBinding?.let {
-            ViewAnimator.crossFade(it.toolbar.spinnerCategories, it.toolbar.btnBack)
-        }
-    }
-
-    fun initTasksListSpinner(){
-        mBinding?.toolbar?.spinnerCategories?.adapter = TasksListSpinnerAdapter(this, taskLists)
-    }
-
-    private fun onBackButtonClick(){
-        showCategoriesSpinner()
-        findNavController(R.id.nav_host_fragment).navigateUp()
+    private fun setupNavController() {
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        mNavController = navHostFragment.navController
     }
 
     @SuppressLint("SetTextI18n")

@@ -1,9 +1,7 @@
 package com.app.toalarm.app
 
 import android.app.Application
-import com.app.toalarm.di.modules.databaseModule
-import com.app.toalarm.di.modules.repositoryModule
-import com.app.toalarm.di.modules.viewModelModule
+import com.app.toalarm.di.modules.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -20,7 +18,7 @@ class App : Application() {
 
         startKoin {
             androidContext(this@App)
-            modules(listOf(databaseModule, repositoryModule, viewModelModule))
+            modules(listOf(dataModule, domainModule, viewModelsModule))
         }
     }
 }
