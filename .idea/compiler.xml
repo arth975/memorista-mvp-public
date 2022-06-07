@@ -3,6 +3,7 @@
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.7">
       <module name="to-alarm.app" target="11" />
+      <module name="to-alarm.common" target="11" />
       <module name="to-alarm.data" target="11" />
     </bytecodeTargetLevel>
   </component>

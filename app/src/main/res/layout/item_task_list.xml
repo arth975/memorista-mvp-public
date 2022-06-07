@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="list"
+            type="com.app.memorista.models.TaskListUI" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/task_list_card"
+        android:layout_width="100dp"
+        android:layout_height="125dp"
+        android:layout_marginEnd="15dp"
+        app:cardCornerRadius="18dp"
+        app:strokeWidth="1dp"
+        android:layout_marginTop="@dimen/home_margin_lists_top"
+        android:layout_marginBottom="@dimen/home_margin_tasks_title_top">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@{list.color}"
+            android:paddingVertical="16dp">
+
+            <TextView
+                android:id="@+id/text_name"
+                style="@style/TaskListItem.Text.ListName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="9dp"
+                android:text="@{list.name}"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_tasks_count"
+                style="@style/TaskListItem.Text.TasksCount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="9dp"
+                android:text='@{String.valueOf(list.tasksCount) + " " + @string/tasks_list_item_tasks_count_title}'
+                app:layout_constraintTop_toBottomOf="@id/text_name" />
+
+            <TextView
+                android:id="@+id/text_completed_tasks_percent"
+                style="@style/TaskListItem.Text.TasksCount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:layout_marginBottom="3dp"
+                android:text='@{list.completedTasksPercent + "%"}'
+                app:layout_constraintBottom_toTopOf="@id/indicator_completed_tasks_percent" />
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/indicator_completed_tasks_percent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:min="@{list.completedTasksPercent}"
+                app:indicatorColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:trackColor="@color/linear_progress_track_color"
+                app:trackCornerRadius="12dp"
+                app:trackThickness="3dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

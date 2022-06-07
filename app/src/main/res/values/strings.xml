@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">To-Alarm</string>
+    <string name="app_name">Memorista</string>
     <string name="content_description">Image</string>
 
     <string name="categories_failed_message">Failed to load categories</string>
@@ -27,4 +27,24 @@
     <string name="create_category_title">New Category</string>
     <string name="create_category_hint">Category name</string>
     <string name="button_create">Create</string>
+
+    <string name="intro_description">Plan your DAY manage your TIME with our manager</string>
+    <string name="intro_welcome">Welcome to</string>
+    <string name="intro_label_name">Please enter your name to continue</string>
+    <string name="intro_hint_name">Robert Martin</string>
+    <string name="intro_terms_and_conditions">Continuing, you are agree with our Terms and Conditions</string>
+    <string name="intro_continue_button">Continue</string>
+
+    <string name="home_tasks_title">Today\'s tasks</string>
+    <string name="home_see_all_button">See all</string>
+
+    <string name="tasks_list_item_tasks_count_title">Tasks</string>
+    <string name="hint_create_new_task">What do you want to do?</string>
+
+    <string name="button_new_task">Task</string>
+    <string name="button_new_list">List</string>
+
+    <string name="task_list_delete_dialog_message">Are you sure?</string>
+    <string name="task_list_delete_dialog_positive_button_title">Yes</string>
+    <string name="task_list_delete_dialog_negative_button_title">No</string>
 </resources>

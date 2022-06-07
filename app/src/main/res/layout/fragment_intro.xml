@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_gradient_intro">
+
+    <!--Logo image-->
+    <ImageView
+        android:id="@+id/image_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:contentDescription="@string/content_description"
+        app:layout_constraintBottom_toTopOf="@+id/text_description"
+        app:layout_constraintEnd_toStartOf="@+id/guide_main_end"
+        app:layout_constraintStart_toStartOf="@+id/guide_main_start"
+        app:srcCompat="@drawable/ic_memorista_logo" />
+
+    <!--Description text-->
+    <TextView
+        android:id="@+id/text_description"
+        style="@style/IntroText.Description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="45dp"
+        android:gravity="center"
+        android:text="@string/intro_description"
+        app:layout_constraintBottom_toTopOf="@+id/text_name_label"
+        app:layout_constraintEnd_toEndOf="@id/guide_main_end"
+        app:layout_constraintStart_toStartOf="@id/guide_main_start" />
+
+    <!--Start: Welcome-->
+    <!--<TextView
+        android:id="@+id/text_welcome"
+        style="@style/IntroText.Welcome"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="58dp"
+        android:text="@string/intro_welcome"
+        app:layout_constraintBottom_toBottomOf="@+id/text_app_name"
+        app:layout_constraintEnd_toEndOf="@id/gl_main_end"
+        app:layout_constraintStart_toStartOf="@id/gl_main_start" />
+
+    <TextView
+        android:id="@+id/text_app_name"
+        style="@style/IntroText.AppName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        app:layout_constraintBottom_toTopOf="@+id/gl_center"
+        app:layout_constraintEnd_toEndOf="@id/gl_main_end"
+        app:layout_constraintStart_toStartOf="@id/gl_main_start"
+        app:layout_constraintTop_toBottomOf="@+id/text_description" />-->
+    <!--End: Welcome-->
+
+    <!--Start: Name Input Area-->
+    <TextView
+        android:id="@+id/text_name_label"
+        style="@style/IntroText.NameLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:labelFor="@id/edit_name"
+        android:text="@string/intro_label_name"
+        app:layout_constraintEnd_toEndOf="@id/guide_main_end"
+        app:layout_constraintStart_toStartOf="@id/guide_main_start"
+        app:layout_constraintTop_toTopOf="@+id/gl_center" />
+
+    <EditText
+        android:id="@+id/edit_name"
+        style="@style/IntroNameEditText"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/intro_height_name"
+        android:layout_marginTop="@dimen/intro_margin_name_et_top"
+        android:background="@drawable/background_name_edit_text"
+        android:importantForAutofill="no"
+        android:paddingStart="@dimen/intro_padding_name_et_start"
+        app:layout_constraintEnd_toEndOf="@id/guide_main_end"
+        app:layout_constraintStart_toStartOf="@id/guide_main_start"
+        app:layout_constraintTop_toBottomOf="@id/text_name_label" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_continue"
+        style="@style/IntroContinueButton"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/intro_height_name"
+        android:layout_marginTop="@dimen/intro_margin_continue_button_top"
+        android:text="@string/intro_continue_button"
+        app:layout_constraintEnd_toEndOf="@id/guide_main_end"
+        app:layout_constraintStart_toStartOf="@id/guide_main_start"
+        app:layout_constraintTop_toBottomOf="@id/edit_name" />
+    <!--End: Name Input Area-->
+
+
+    <!--Footer terms & conditions-->
+    <TextView
+        android:id="@+id/text_terms_and_conditions"
+        style="@style/IntroText.TermsAndConditions"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/intro_terms_and_conditions"
+        app:layout_constraintEnd_toEndOf="@id/guide_main_end"
+        app:layout_constraintStart_toStartOf="@id/guide_main_start"
+        app:layout_constraintTop_toTopOf="@+id/gl_footer_top" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_main_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.08" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_main_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.92" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.45" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_footer_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.92" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

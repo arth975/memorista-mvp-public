@@ -1,35 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
         <variable
             name="task"
-            type="com.app.toalarm.models.TaskUI" />
+            type="com.app.memorista.models.TaskUI" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <androidx.constraintlayout.widget.ConstraintLayout
         style="@style/TaskItem.Card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/shadow_elevation_card"
         android:layout_marginTop="@dimen/task_item_margin_top"
         android:background="@drawable/background_card_item"
+        android:paddingVertical="12dp"
         android:paddingStart="@dimen/task_item_padding_start"
-        android:paddingEnd="@dimen/task_item_padding_end"
-        android:paddingBottom="17dp">
-
-        <!--Task Alarm Time-->
-        <TextView
-            android:id="@+id/tv_time"
-            style="@style/TaskItem.Text.Time"
-            timeText="@{task.taskDateTime.toLocalTime()}"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        android:paddingEnd="@dimen/task_item_padding_end">
 
         <!--Task Title-->
         <TextView
@@ -39,9 +28,10 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/task_item_margin_text_horizontal"
             android:text="@{task.title}"
-            app:layout_constraintEnd_toStartOf="@+id/btn_edit"
+            app:layout_constraintBottom_toTopOf="@+id/tv_description"
             app:layout_constraintStart_toEndOf="@+id/check_box"
-            app:layout_constraintTop_toBottomOf="@+id/tv_time" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="spread" />
 
         <!--Task Description-->
         <TextView
@@ -49,31 +39,52 @@
             style="@style/TaskItem.Text.Description"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
             android:text="@{task.description}"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/text_time"
             app:layout_constraintEnd_toEndOf="@+id/tv_title"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="@+id/tv_title"
             app:layout_constraintTop_toBottomOf="@+id/tv_title" />
 
-        <!--Edit Button-->
-        <ImageButton
-            android:id="@+id/btn_edit"
-            android:layout_width="@dimen/task_item_size_edit_button"
-            android:layout_height="@dimen/task_item_size_edit_button"
-            android:background="@android:color/transparent"
-            android:contentDescription="@string/content_description"
-            android:src="@drawable/ic_edit"
-            app:layout_constraintBottom_toBottomOf="@+id/check_box"
-            app:layout_constraintEnd_toEndOf="@id/tv_time"
-            app:layout_constraintTop_toTopOf="@+id/check_box" />
-
-        <com.google.android.material.checkbox.MaterialCheckBox
-            android:id="@+id/check_box"
-            style="@style/TaskItem.CheckBox"
+        <!--Task Date-->
+        <TextView
+            android:id="@+id/text_date"
+            style="@style/Text.Icon"
+            timeText="@{task.taskTime}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_description"
+            android:visibility="gone"
+            app:drawableStartCompat="@drawable/ic_calendar"
+            app:drawableTint="@color/secondary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_description" />
+
+        <!--Task Time-->
+        <TextView
+            android:id="@+id/text_time"
+            style="@style/Text.Icon"
+            timeText="@{task.taskTime}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:visibility="gone"
+            app:drawableStartCompat="@drawable/ic_alarm"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/text_date"
+            app:layout_constraintTop_toBottomOf="@+id/tv_description" />
+
+        <CheckBox
+            android:id="@+id/check_box"
+            style="@style/CheckBoxCommon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tv_title" />
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

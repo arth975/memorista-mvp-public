@@ -8,15 +8,18 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="primary">#FF98BD</color>
-    <color name="primaryVariant">#F36194</color>
+    <color name="primary">#1C79F6</color>
+    <color name="primaryVariant">#0952B5</color>
     <color name="onPrimary">#ffffff</color>
 
+    <color name="primary_background">#FFF6F6</color>
+
     <color name="main">#1E1D1D</color>
+    <color name="secondary">#B7B7B7</color>
 
     <color name="font_primary">#1E1D1D</color>
-    <color name="font_secondary_1">#555353</color>
-    <color name="font_secondary_2">#878787</color>
+    <color name="font_secondary_1">@color/secondary</color>
+    <color name="font_secondary_2">#D6D1D1</color>
     <color name="font_secondary_3">#CECCCC</color>
     <color name="font_secondary_4">#B9BCBA</color>
     <color name="font_current_date">#999797</color>
@@ -27,6 +30,7 @@
     <color name="bg_secondary_3">#F1F1F1</color>
     <color name="bg_secondary_4">#FAFAFA</color>
 
+    <color name="accent">#1C79F6</color>
     <color name="accent_1">#8CF899BB</color>
     <color name="accent_2">#8CFAD8E4</color>
 
@@ -39,4 +43,6 @@
 
     <color name="underline">#555353</color>
     <color name="ripple">#878787</color>
+
+    <color name="linear_progress_track_color">@color/secondary</color>
 </resources>

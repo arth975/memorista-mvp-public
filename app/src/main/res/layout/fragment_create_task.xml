@@ -1,174 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_main">
+    android:background="@color/bg_main"
+    tools:context=".ui.fragments.IntroFragment">
 
-    <!--Start: New Task-->
-    <TextView
-        android:id="@+id/tv_new_task_title"
-        style="@style/Text.Title"
+    <com.google.android.material.checkbox.MaterialCheckBox
+        android:id="@+id/check_box"
+        style="@style/CheckBoxCommon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/create_task_margin_title_top"
-        android:labelFor="@id/et_task_title"
-        android:text="@string/new_task_title"
-        app:layout_constraintStart_toStartOf="@id/gl_main_start"
+        app:layout_constraintStart_toStartOf="@id/guide_main_start"
+        app:layout_constraintTop_toTopOf="@id/edit_text_note" />
+
+    <EditText
+        android:id="@+id/edit_text_note"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@android:color/transparent"
+        android:hint="@string/hint_create_new_task"
+        android:inputType="text"
+        android:padding="0dp"
+        android:textColorHint="@color/font_secondary_1"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@id/guide_main_end"
+        app:layout_constraintStart_toEndOf="@id/check_box"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.app.toalarm.ui.custom.LinedEditText
-        android:id="@+id/et_task_title"
-        style="@style/NewTask.EditText.Title"
+
+    <!--Task Date-->
+    <TextView
+        android:id="@+id/text_date"
+        style="@style/Text.Icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:drawableStartCompat="@drawable/ic_calendar_13"
+        app:drawableTint="@color/secondary"
+        app:layout_constraintStart_toStartOf="@id/edit_text_note"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_note" />
+
+    <!--Task Time-->
+    <TextView
+        android:id="@+id/text_time"
+        style="@style/Text.Icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:visibility="gone"
+        app:drawableStartCompat="@drawable/ic_alarm_13"
+        app:layout_constraintStart_toEndOf="@id/text_date"
+        app:layout_constraintTop_toTopOf="@id/text_date" />
+
+    <include layout="@layout/layout_create_task_toolbox" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_lists"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/create_task_margin_title_bottom"
-        android:importantForAutofill="no"
-        app:layout_constraintEnd_toEndOf="@id/gl_main_end"
-        app:layout_constraintStart_toStartOf="@id/gl_main_start"
-        app:layout_constraintTop_toBottomOf="@id/tv_new_task_title" />
-    <!--End: New Task-->
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@id/guide_main_end"
+        app:layout_constraintStart_toStartOf="@id/guide_main_start"
+        app:layout_constraintTop_toBottomOf="@id/line_bottom" />
 
-    <!--Start: New Task-->
-    <TextView
-        android:id="@+id/tv_notes_title"
-        style="@style/Text.Title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/create_task_margin_title_Top"
-        android:labelFor="@id/et_task_notes"
-        android:text="@string/new_task_title_notes"
-        app:layout_constraintStart_toStartOf="@id/gl_main_start"
-        app:layout_constraintTop_toBottomOf="@id/et_task_title" />
-
-    <com.app.toalarm.ui.custom.LinedEditText
-        android:id="@+id/et_task_notes"
-        style="@style/NewTask.EditText.Notes"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/create_task_margin_title_bottom"
-        android:importantForAutofill="no"
-        app:layout_constraintEnd_toEndOf="@id/gl_main_end"
-        app:layout_constraintStart_toStartOf="@id/gl_main_start"
-        app:layout_constraintTop_toBottomOf="@id/tv_notes_title" />
-    <!--End: New Task-->
-
-    <!--Start: Date-->
-    <TextView
-        android:id="@+id/tv_date_title"
-        style="@style/Text.Title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/create_task_margin_title_Top"
-        android:text="@string/new_task_title_date"
-        app:layout_constraintStart_toStartOf="@id/gl_main_start"
-        app:layout_constraintTop_toBottomOf="@id/et_task_notes" />
-
-    <TextView
-        android:id="@+id/tv_task_date"
-        style="@style/NewTask.Text.Date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/create_task_margin_selected_date_start"
-        android:text="@string/new_task_no_selected_date"
-        app:layout_constraintBottom_toBottomOf="@id/btn_show_calendar_picker_dialog"
-        app:layout_constraintStart_toStartOf="@id/gl_main_start"
-        app:layout_constraintTop_toTopOf="@id/btn_show_calendar_picker_dialog" />
-
-    <ImageButton
-        android:id="@+id/btn_show_calendar_picker_dialog"
-        style="@style/ImageButton"
-        android:layout_width="@dimen/image_button_width"
-        android:layout_height="@dimen/image_button_height"
-        android:layout_marginTop="@dimen/create_task_margin_title_bottom"
-        android:layout_marginEnd="@dimen/shadow_elevation_card"
-        android:contentDescription="@string/content_description"
-        android:src="@drawable/ic_calendar_week"
-        app:layout_constraintEnd_toEndOf="@id/gl_main_end"
-        app:layout_constraintTop_toBottomOf="@id/tv_date_title" />
-
-    <View
-        android:id="@+id/selected_date_underline"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/create_task_underline_height"
-        android:layout_marginTop="@dimen/create_task_underline_margin_top"
-        android:layout_marginEnd="@dimen/create_task_margin_selected_date_underline_end"
-        android:background="@color/underline"
-        app:layout_constraintEnd_toStartOf="@id/btn_show_calendar_picker_dialog"
-        app:layout_constraintStart_toStartOf="@id/gl_main_start"
-        app:layout_constraintTop_toBottomOf="@id/tv_task_date" />
-    <!--End: Date-->
-
-    <!--Start: Time-->
-    <TextView
-        android:id="@+id/tv_alarm_time_title"
-        style="@style/Text.Title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/create_task_margin_title_Top"
-        android:text="@string/new_task_title_time"
-        app:layout_constraintStart_toStartOf="@id/gl_main_start"
-        app:layout_constraintTop_toBottomOf="@id/selected_date_underline" />
-
-    <TextView
-        android:id="@+id/tv_task_alarm_time"
-        style="@style/NewTask.Text.Date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/create_task_margin_selected_date_start"
-        android:text="@string/new_task_no_selected_date"
-        app:layout_constraintBottom_toBottomOf="@id/btn_show_time_picker_dialog"
-        app:layout_constraintStart_toStartOf="@id/gl_main_start"
-        app:layout_constraintTop_toTopOf="@id/btn_show_time_picker_dialog" />
-
-    <ImageButton
-        android:id="@+id/btn_show_time_picker_dialog"
-        style="@style/ImageButton"
-        android:layout_width="@dimen/image_button_width"
-        android:layout_height="@dimen/image_button_height"
-        android:layout_marginTop="@dimen/create_task_margin_title_bottom"
-        android:layout_marginEnd="@dimen/shadow_elevation_card"
-        android:contentDescription="@string/content_description"
-        android:src="@drawable/ic_calendar_week"
-        app:layout_constraintEnd_toEndOf="@id/gl_main_end"
-        app:layout_constraintTop_toBottomOf="@id/tv_alarm_time_title" />
-
-    <View
-        android:id="@+id/selected_time_underline"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/create_task_underline_height"
-        android:layout_marginTop="@dimen/create_task_underline_margin_top"
-        android:layout_marginEnd="@dimen/create_task_margin_selected_date_underline_end"
-        android:background="@color/underline"
-        app:layout_constraintEnd_toStartOf="@id/btn_show_time_picker_dialog"
-        app:layout_constraintStart_toStartOf="@id/gl_main_start"
-        app:layout_constraintTop_toBottomOf="@id/tv_task_alarm_time" />
-    <!--End: Date-->
-
-    <!--Start: Category-->
-    <TextView
-        android:id="@+id/tv_category_title"
-        style="@style/Text.Title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/create_task_margin_title_Top"
-        android:text="@string/new_task_title_category"
-        app:layout_constraintStart_toStartOf="@id/gl_main_start"
-        app:layout_constraintTop_toBottomOf="@id/selected_time_underline" />
-
-    <Spinner
-        android:id="@+id/spinner_categories"
-        style="@style/Spinner.Category"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/create_task_margin_title_bottom"
-        app:layout_constraintEnd_toEndOf="@id/gl_main_end"
-        app:layout_constraintStart_toStartOf="@+id/gl_main_start"
-        app:layout_constraintTop_toBottomOf="@id/tv_category_title" />
-    <!--End: Category-->
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_create_task"
+    <!--<com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add_new_task"
         style="@style/FabCommon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -176,24 +76,27 @@
         android:contentDescription="@string/content_description"
         app:fabCustomSize="@dimen/fab_custom_size"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/gl_main_end"
-        app:srcCompat="@drawable/ic_check" />
-
-    <!--Start: Alarm-->
-    <!--End: Alarm-->
+        app:layout_constraintEnd_toEndOf="@id/guide_main_end" />-->
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gl_main_start"
+        android:id="@+id/guide_toolbox_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_main_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="@dimen/guide_main_start" />
+        app:layout_constraintGuide_percent="@dimen/guide_percent_main_start" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gl_main_end"
+        android:id="@+id/guide_main_end"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="@dimen/guide_main_end" />
+        app:layout_constraintGuide_percent="@dimen/guide_percent_main_end" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

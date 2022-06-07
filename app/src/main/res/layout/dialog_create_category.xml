@@ -21,7 +21,7 @@
         style="@style/CreateCategory.NameTextInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/create_category_dialog_name_edit_text_margin_top"
+        android:layout_marginTop="@dimen/create_category_dialog_margin_name_edit_text_top"
         app:boxBackgroundColor="@color/bg_main">
 
         <EditText
@@ -36,7 +36,7 @@
         android:id="@+id/btn_create_category"
         style="@style/ButtonCommon"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/create_category_dialog_button_create_height"
-        android:layout_marginTop="@dimen/create_category_dialog_button_create_margin_top"
+        android:layout_height="@dimen/create_category_dialog_height_button_create"
+        android:layout_marginTop="@dimen/create_category_dialog_margin_button_create_top"
         android:text="@string/button_create" />
 </LinearLayout>

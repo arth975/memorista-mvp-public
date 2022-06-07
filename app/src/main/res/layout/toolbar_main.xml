@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar"
+    android:theme="@style/ToolbarTheme"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
-    android:background="@color/primary">
+    android:background="@color/primary_background">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -11,30 +13,30 @@
 
         <!--Start: Current date-->
         <TextView
-            android:id="@+id/tv_weekday"
+            android:id="@+id/text_weekday"
             style="@style/Text.CurrentDate.WeekDay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/tv_date"
+            app:layout_constraintEnd_toStartOf="@id/text_date"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tv_date"
+            android:id="@+id/text_date"
             style="@style/Text.CurrentDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/gl_main_end"
+            app:layout_constraintEnd_toEndOf="@id/guide_main_end"
             app:layout_constraintTop_toTopOf="parent" />
         <!--End: Current date-->
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/gl_main_end"
+            android:id="@+id/guide_main_end"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="@dimen/guide_main_end" />
+            app:layout_constraintGuide_percent="@dimen/guide_percent_main_end" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

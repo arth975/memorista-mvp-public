@@ -6,8 +6,8 @@
     <dimen name="font_calendar_weekday">10sp</dimen>
     <dimen name="font_main_tab_layout">14sp</dimen>
 
-    <dimen name="guide_main_start">0.04</dimen>
-    <dimen name="guide_main_end">0.96</dimen>
+    <item name="guide_percent_main_start" format="float" type="dimen">0.03</item>
+    <item name="guide_percent_main_end" format="float" type="dimen">0.97</item>
 
     <dimen name="image_button_width">30dp</dimen>
     <dimen name="image_button_height">30dp</dimen>
@@ -34,6 +34,7 @@
     <dimen name="task_item_margin_text_horizontal">10dp</dimen>
     <dimen name="task_item_gl_top">0.24</dimen>
     <dimen name="task_item_gl_bottom">0.76</dimen>
+    <dimen name="task_item_font_size_date_time">12sp</dimen>
 
     <dimen name="item_spinner_categories_font_size">16sp</dimen>
     <dimen name="item_spinner_categories_padding_vertical">7dp</dimen>
@@ -44,14 +45,15 @@
     <dimen name="fab_margin_bottom">36dp</dimen>
     <dimen name="fab_custom_size">53dp</dimen>
 
-    <dimen name="create_task_margin_title_bottom">10dp</dimen>
+    <dimen name="create_task_font_size_et">14sp</dimen>
+    <dimen name="create_task_font_size_selected_date">14sp</dimen>
     <dimen name="create_task_margin_title_Top">17dp</dimen>
+    <dimen name="create_task_margin_title_top">20dp</dimen>
+    <dimen name="create_task_margin_title_bottom">10dp</dimen>
+    <dimen name="create_task_margin_underline_top">5dp</dimen>
     <dimen name="create_task_margin_selected_date_start">14dp</dimen>
     <dimen name="create_task_margin_selected_date_underline_end">14dp</dimen>
-    <dimen name="create_task_font_et">14sp</dimen>
-    <dimen name="create_task_font_selected_date">14sp</dimen>
-    <dimen name="create_task_underline_height">0.6dp</dimen>
-    <dimen name="create_task_underline_margin_top">5dp</dimen>
+    <dimen name="create_task_height_underline">0.6dp</dimen>
 
     <dimen name="home_categories_margin_top">12dp</dimen>
     <dimen name="home_categories_margin_spinner_end">15dp</dimen>
@@ -60,12 +62,45 @@
     <dimen name="home_new_category_button_width">70dp</dimen>
     <dimen name="home_new_category_button_text_size">15sp</dimen>
 
-    <dimen name="create_category_dialog_name_edit_text_size">12sp</dimen>
-    <dimen name="create_category_dialog_name_edit_padding_start">10dp</dimen>
     <dimen name="create_category_dialog_padding">17dp</dimen>
+    <dimen name="create_category_dialog_padding_name_edit_start">10dp</dimen>
     <dimen name="create_category_dialog_margin_horizontal">40dp</dimen>
-    <dimen name="create_category_dialog_name_edit_text_margin_top">4dp</dimen>
-    <dimen name="create_category_dialog_button_create_height">32dp</dimen>
-    <dimen name="create_category_dialog_button_create_margin_top">34dp</dimen>
-    <dimen name="create_task_margin_title_top">20dp</dimen>
+    <dimen name="create_category_dialog_margin_name_edit_text_top">4dp</dimen>
+    <dimen name="create_category_dialog_margin_button_create_top">34dp</dimen>
+    <dimen name="create_category_dialog_height_button_create">32dp</dimen>
+    <dimen name="create_category_dialog_font_size_name_edit">12sp</dimen>
+
+    <dimen name="intro_padding_name_et_start">23dp</dimen>
+    <dimen name="intro_margin_logo_image_top">20dp</dimen>
+    <dimen name="intro_margin_description_top">52dp</dimen>
+    <dimen name="intro_margin_welcome_top">35dp</dimen>
+    <dimen name="intro_margin_name_label_top">55dp</dimen>
+    <dimen name="intro_margin_name_et_top">12dp</dimen>
+    <dimen name="intro_margin_continue_button_top">20dp</dimen>
+    <dimen name="intro_margin_terms_and_conditions_bottom">25dp</dimen>
+    <dimen name="intro_font_size_description">16sp</dimen>
+    <dimen name="intro_font_size_welcome">26sp</dimen>
+    <dimen name="intro_font_size_memorista">57sp</dimen>
+    <dimen name="intro_font_size_name_label">16sp</dimen>
+    <dimen name="intro_font_size_name_edit_text">16sp</dimen>
+    <dimen name="intro_font_size_terms_and_conditions">12sp</dimen>
+    <dimen name="intro_border_radius_name">25dp</dimen>
+    <dimen name="intro_height_name">50dp</dimen>
+
+    <dimen name="home_margin_lists_top">15dp</dimen>
+    <dimen name="home_margin_today_tasks_top">26dp</dimen>
+    <dimen name="home_margin_tasks_title_top">29dp</dimen>
+    <dimen name="home_font_size_tasks_title">18sp</dimen>
+    <dimen name="home_font_size_see_all_button">12sp</dimen>
+
+    <dimen name="task_list_item_font_size_name">16sp</dimen>
+    <dimen name="task_list_item_font_size_tasks_count">12sp</dimen>
+    <dimen name="create_task_common_icon_size">20dp</dimen>
+    <dimen name="create_component_dialog_width">220dp</dimen>
+    <dimen name="task_list_margin_button_end">12dp</dimen>
+    <dimen name="create_list_margin_top">24dp</dimen>
+
+    <item name="task_list_guide_percent_start" format="float" type="dimen">0.06</item>
+    <item name="task_list_guide_percent_end" format="float" type="dimen">0.96</item>
+
 </resources>

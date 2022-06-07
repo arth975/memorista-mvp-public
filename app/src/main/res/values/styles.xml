@@ -10,7 +10,13 @@
         <item name="android:outlineSpotShadowColor">@color/shadow_spot</item>
     </style>
 
-    <style name="Text" />
+    <style name="ToolbarTheme" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="colorControlNormal">@color/main</item>
+    </style>
+
+    <style name="Text">
+        <item name="android:includeFontPadding">false</item>
+    </style>
 
     <style name="Text.CurrentDate">
         <item name="android:textSize">@dimen/font_current_day</item>
@@ -31,6 +37,14 @@
         <item name="android:textColor">@color/font_primary</item>
     </style>
 
+    <style name="Text.Icon">
+        <item name="android:textSize">@dimen/task_item_font_size_date_time</item>
+        <item name="android:textColor">@color/font_secondary_1</item>
+        <item name="android:drawableTint">@color/secondary</item>
+        <item name="android:drawablePadding">8dp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
     <style name="ImageButton" parent="Shadow">
         <item name="android:elevation">@dimen/shadow_elevation_button</item>
         <item name="android:background">@drawable/background_image_button</item>
@@ -48,11 +62,15 @@
         <item name="android:popupBackground">@drawable/background_tasks_list_spinner_popup</item>
     </style>
 
+    <style name="MemoristaButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+    </style>
+
     <style name="ButtonCommon">
         <item name="android:textAllCaps">false</item>
         <item name="android:textColor">@color/font_primary</item>
-        <item name="android:background">@drawable/background_accent_gradient</item>
-        <item name="backgroundTint">@null</item>
         <item name="android:insetTop">0dp</item>
         <item name="android:insetBottom">0dp</item>
         <item name="android:insetLeft">0dp</item>
@@ -61,11 +79,23 @@
         <item name="android:padding">0dp</item>
     </style>
 
+    <style name="CheckBoxCommon">
+        <item name="android:padding">0dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:buttonTint">@color/checkbox_button_tint</item>
+    </style>
+
     <style name="FabCommon">
         <item name="backgroundTint">@color/fab_background</item>
         <item name="rippleColor">@color/fab_ripple</item>
         <item name="srcCompat">@drawable/ic_add</item>
         <item name="tint">@color/white</item>
+    </style>
+
+    <style name="CreateTaskDialog" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:layout_gravity">center</item>
     </style>
     <!--End: General-->
 
@@ -137,12 +167,6 @@
         <item name="android:lines">1</item>
         <item name="android:maxLines">1</item>
     </style>
-
-    <style name="TaskItem.CheckBox">
-        <item name="android:padding">0dp</item>
-        <item name="android:minWidth">0dp</item>
-        <item name="android:minHeight">0dp</item>
-    </style>
     <!--End: Task Item-->
 
 
@@ -175,7 +199,7 @@
     </style>
 
     <style name="NewTask.Text.Date">
-        <item name="android:textSize">@dimen/create_task_font_selected_date</item>
+        <item name="android:textSize">@dimen/create_task_font_size_selected_date</item>
         <item name="android:textColor">@color/font_primary</item>
         <item name="android:letterSpacing">-0.02</item>
     </style>
@@ -194,7 +218,7 @@
         <item name="android:paddingLeft">0dp</item>
         <item name="android:paddingRight">0dp</item>
         <item name="android:textColor">@color/font_secondary_1</item>
-        <item name="android:textSize">@dimen/create_task_font_et</item>
+        <item name="android:textSize">@dimen/create_task_font_size_et</item>
         <item name="android:inputType">text</item>
         <item name="android:gravity">top|left</item>
     </style>
@@ -222,8 +246,8 @@
     <style name="CreateCategory.NameEditText">
         <item name="android:letterSpacing">0.04</item>
         <item name="android:textColor">@color/font_primary</item>
-        <item name="android:textSize">@dimen/create_category_dialog_name_edit_text_size</item>
-        <item name="android:paddingStart">@dimen/create_category_dialog_name_edit_padding_start
+        <item name="android:textSize">@dimen/create_category_dialog_font_size_name_edit</item>
+        <item name="android:paddingStart">@dimen/create_category_dialog_padding_name_edit_start
         </item>
     </style>
     <!--End: Create Category Screen-->
@@ -235,5 +259,126 @@
         <item name="cornerSize">50%</item>
     </style>
     <!--End: ShapeAppereanceOverlays-->
+
+    <!--Start: Intro Screen-->
+    <style name="IntroText" parent="Text">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="IntroText.Description">
+        <item name="android:textSize">@dimen/intro_font_size_description</item>
+    </style>
+
+    <style name="IntroText.NameLabel">
+        <item name="android:textSize">@dimen/intro_font_size_name_label</item>
+    </style>
+
+    <style name="IntroText.TermsAndConditions">
+        <item name="android:textSize">@dimen/intro_font_size_terms_and_conditions</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="IntroText.Welcome">
+        <item name="android:textSize">@dimen/intro_font_size_welcome</item>
+    </style>
+
+    <style name="IntroText.AppName">
+        <item name="android:textSize">@dimen/intro_font_size_memorista</item>
+        <item name="android:gravity">start</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="fontFamily">@font/bree_serif</item>
+    </style>
+
+    <style name="IntroNameEditText">
+        <item name="android:textSize">@dimen/intro_font_size_name_edit_text</item>
+        <item name="android:hint">@string/intro_hint_name</item>
+        <item name="android:textColor">@color/font_primary</item>
+        <item name="android:textColorHint">@color/font_secondary_1</item>
+        <item name="android:inputType">textPersonName</item>
+        <item name="android:paddingStart">@dimen/intro_padding_name_et_start</item>
+    </style>
+
+    <style name="IntroContinueButton" parent="MemoristaButton">
+        <item name="strokeColor">@color/white</item>
+        <item name="cornerRadius">@dimen/intro_border_radius_name</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!--End: Intro Screen-->
+
+    <!--Start: Home Screen-->
+    <style name="Home"/>
+    <style name="Home.Text"/>
+    <style name="Home.Text.TasksTitle" parent="Text">
+        <item name="android:textColor">@color/font_primary</item>
+        <item name="android:textSize">@dimen/home_font_size_tasks_title</item>
+        <item name="android:letterSpacing">0.02</item>
+        <item name="fontFamily">@font/open_sans_semibold</item>
+    </style>
+
+    <style name="Home.SeeAllButton" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">@dimen/home_font_size_see_all_button</item>
+        <item name="android:textColor">@color/accent</item>
+        <item name="android:letterSpacing">0.02</item>
+        <item name="fontFamily">@font/open_sans_semibold</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:padding">0dp</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:minWidth">0dp</item>
+    </style>
+    <!--End: Home Screen-->
+
+    <!--Start: Task List Item-->
+    <style name="TaskListItem"/>
+    <style name="TaskListItem.Text" parent="Text"/>
+    <style name="TaskListItem.Text.ListName">
+        <item name="android:textSize">@dimen/task_list_item_font_size_name</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:lines">1</item>
+    </style>
+    <style name="TaskListItem.Text.TasksCount">
+        <item name="android:textSize">@dimen/task_list_item_font_size_tasks_count</item>
+        <item name="android:textColor">@color/font_secondary_1</item>
+        <item name="android:lines">1</item>
+    </style>
+    <!--End: Task List Item-->
+
+    <!--Start: Create New Component Dialog-->
+    <style name="NewComponentButton" parent="Widget.MaterialComponents.Button.TextButton.Icon">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/accent</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:gravity">start</item>
+
+        <item name="iconTint">@color/accent</item>
+        <item name="iconPadding">18dp</item>
+
+        <item name="rippleColor">@android:color/transparent</item>
+
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:padding">0dp</item>
+    </style>
+    <!--End: Create New Component Dialog-->
+
+    <!--Start: Single List Fragment-->
+    <style name="SingleListCard">
+
+    </style>
+    <style name="ShapeAppearanceOverlay.SingleList">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">17dp</item>
+        <item name="cornerSizeTopRight">17dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+    </style>
+
+    <!--End: Single List Fragment-->
 
 </resources>

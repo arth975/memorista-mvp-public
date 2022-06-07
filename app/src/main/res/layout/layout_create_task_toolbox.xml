@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <TextView
+        android:id="@+id/text_selected_list_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Work"
+        android:textColor="@color/font_secondary_1"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@id/button_calendar"
+        app:layout_constraintStart_toStartOf="@id/guide_main_start"
+        app:layout_constraintTop_toTopOf="@id/button_calendar" />
+
+    <ImageButton
+        android:id="@+id/button_time"
+        android:layout_width="@dimen/create_task_common_icon_size"
+        android:layout_height="@dimen/create_task_common_icon_size"
+        android:layout_marginVertical="10dp"
+        android:backgroundTint="@android:color/transparent"
+        android:contentDescription="@string/content_description"
+        android:padding="0dp"
+        app:layout_constraintEnd_toEndOf="@id/guide_main_end"
+        app:layout_constraintTop_toTopOf="@id/line_top"
+        app:srcCompat="@drawable/ic_alarm"
+        app:tint="@color/secondary" />
+
+    <ImageButton
+        android:id="@+id/button_calendar"
+        android:layout_width="@dimen/create_task_common_icon_size"
+        android:layout_height="@dimen/create_task_common_icon_size"
+        android:layout_marginEnd="15dp"
+        android:backgroundTint="@android:color/transparent"
+        android:contentDescription="@string/content_description"
+        android:padding="0dp"
+        app:layout_constraintEnd_toStartOf="@id/button_time"
+        app:layout_constraintTop_toTopOf="@id/button_time"
+        app:srcCompat="@drawable/ic_calendar"
+        app:tint="@color/secondary" />
+
+    <View
+        android:id="@+id/line_top"
+        android:layout_width="match_parent"
+        android:layout_height="0.6dp"
+        android:background="@color/secondary"
+        app:layout_constraintTop_toTopOf="@id/guide_toolbox_top" />
+
+    <View
+        android:id="@+id/line_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="0.6dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/secondary"
+        app:layout_constraintTop_toBottomOf="@id/button_calendar" />
+</merge>

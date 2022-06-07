@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="list"
+            type="com.app.memorista.models.TaskListUI" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/root_layout"
+        style="@style/SingleListCard"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/create_list_margin_top"
+        android:background="@android:color/transparent"
+        android:paddingTop="34dp">
+
+        <EditText
+            android:id="@+id/text_name"
+            style="@style/TaskListItem.Text.ListName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:backgroundTint="@android:color/transparent"
+            android:inputType="text"
+            android:padding="0dp"
+            android:text="@{list.name}"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toStartOf="@id/button_edit"
+            app:layout_constraintStart_toStartOf="@+id/guide_main_start"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_tasks_count"
+            style="@style/TaskListItem.Text.TasksCount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text='@{String.valueOf(list.tasksCount) + " " + @string/tasks_list_item_tasks_count_title}'
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/guide_main_start"
+            app:layout_constraintTop_toBottomOf="@id/text_name" />
+
+        <ImageButton
+            android:id="@+id/button_color_picker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/task_list_margin_button_end"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/content_description"
+            app:layout_constraintEnd_toStartOf="@id/button_delete"
+            app:layout_constraintTop_toTopOf="@id/text_name"
+            app:srcCompat="@drawable/ic_color_picker" />
+
+        <ImageButton
+            android:id="@+id/button_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/task_list_margin_button_end"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/content_description"
+            app:layout_constraintEnd_toStartOf="@id/button_color_picker"
+            app:layout_constraintTop_toTopOf="@id/text_name"
+            app:srcCompat="@drawable/ic_edit_pencil" />
+
+        <ImageButton
+            android:id="@+id/button_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/content_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/text_name"
+            app:srcCompat="@drawable/ic_delete" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_tasks"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="39dp"
+            app:layout_constraintEnd_toEndOf="@id/guide_main_end"
+            app:layout_constraintStart_toStartOf="@id/guide_main_start"
+            app:layout_constraintTop_toBottomOf="@id/text_tasks_count" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_main_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="@dimen/task_list_guide_percent_start" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_main_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="@dimen/task_list_guide_percent_end" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

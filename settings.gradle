@@ -9,3 +9,4 @@ rootProject.name = "to-alarm"
 include ':app'
 include ':domain'
 include ':data'
+include ':common'
