@@ -21,7 +21,7 @@ import com.app.memorista.data.utils.DateTimeConverter
  */
 @Database(
     entities = [TaskEntity::class, ListEntity::class, UserEntity::class],
-    version = 5,
+    version = 7,
     exportSchema = false
 )
 @TypeConverters(DateTimeConverter::class)

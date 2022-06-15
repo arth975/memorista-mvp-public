@@ -48,7 +48,6 @@ class IntroFragment : Fragment(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-        findNavController().navigate(R.id.action_introFragment_to_homeFragment)
         //mViewModel.validate((mBinding?.editName?.text as? String?) ?: "")
     }
 

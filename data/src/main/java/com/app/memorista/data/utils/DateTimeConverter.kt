@@ -26,7 +26,9 @@ class DateTimeConverter {
 
     @TypeConverter
     fun timeStampToDate(timestamp: Long?): LocalDate? {
-        return timestamp?.let { Instant.ofEpochMilli(it).atZone(mZone).toLocalDate() }
+        if (timestamp == null)
+            return null
+        return Instant.ofEpochMilli(timestamp).atZone(mZone).toLocalDate()
     }
 
     @TypeConverter
@@ -36,6 +38,8 @@ class DateTimeConverter {
 
     @TypeConverter
     fun timeStampToTime(timeString: String?): LocalTime? {
+        if (timeString == null)
+            return null
         return LocalTime.parse(timeString, DateTimeFormatter.ISO_TIME)
     }
 

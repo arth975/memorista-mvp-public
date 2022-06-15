@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:id="@+id/tasks_group"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/homeFragment"
+            android:enabled="true"
+            android:icon="@drawable/ic_calendar_today"
+            android:title="@string/nav_title_today_tasks" />
+        <item
+            android:id="@+id/tomorrowTasksFragment"
+            android:enabled="true"
+            android:icon="@drawable/ic_calendar_tomorrow"
+            android:title="@string/nav_title_tomorrow_tasks" />
+        <item
+            android:id="@+id/thisWeekTasksFragment"
+            android:enabled="true"
+            android:icon="@drawable/ic_calendar_week"
+            android:title="@string/nav_title_this_week_tasks" />
+        <item
+            android:id="@+id/allTasksFragment"
+            android:enabled="true"
+            android:icon="@drawable/ic_calendar"
+            android:title="@string/nav_title_all_tasks" />
+
+    </group>
+
+    <group
+        android:id="@+id/general_group"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/calendarFragment"
+            android:enabled="true"
+            android:icon="@drawable/ic_calendar_checked"
+            android:title="@string/nav_title_calendar" />
+        <item
+            android:id="@+id/savedTasksFragment"
+            android:enabled="true"
+            android:icon="@drawable/ic_bookmark_filled"
+            android:title="@string/nav_title_favorites" />
+        <item
+            android:id="@+id/notificationsFragment"
+            android:enabled="true"
+            android:icon="@drawable/ic_notification_filled"
+            android:title="@string/nav_title_notifications" />
+        <item
+            android:id="@+id/categoriesFragment"
+            android:enabled="true"
+            android:icon="@drawable/ic_category"
+            android:title="@string/nav_title_categories" />
+    </group>
+</menu>

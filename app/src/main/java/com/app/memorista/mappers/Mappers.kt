@@ -1,49 +1,49 @@
 package com.app.memorista.mappers
 
-import com.app.memorista.domain.models.ListWithTasks
-import com.app.memorista.domain.models.Task
-import com.app.memorista.domain.models.TaskList
-import com.app.memorista.domain.models.User
-import com.app.memorista.models.ListWithTasksUI
-import com.app.memorista.models.TaskListUI
-import com.app.memorista.models.TaskUI
-import com.app.memorista.models.UserUI
+import com.app.memorista.domain.models.*
+import com.app.memorista.models.*
 import java.time.LocalTime
 
 fun TaskList.toUI() = TaskListUI(
-    name = this.name,
-    id = this.id,
+    name = name,
+    id = id,
     tasksCount = tasksCount,
+    completedTaskCount = completedTaskCount,
     completedTasksPercent = completedTaskPercent,
     color = color
 )
 
 fun TaskListUI.toDomain() = TaskList(
-    name = this.name,
-    id = this.id,
+    name = name,
+    id = id,
     tasksCount = tasksCount,
+    completedTaskCount = completedTaskCount,
     completedTaskPercent = completedTasksPercent,
     color = color
 )
 
 fun Task.toUI() = TaskUI(
+    id = id,
     title = title,
+    listId = listId,
+    listColor = listColor,
     description = note,
     taskTime = taskTime,
     taskDate = taskDate,
     isActive = isActive,
     alarmTime = LocalTime.now(),
-    categoryId = listId,
-    id = id
+    priority = if(priority != null) PriorityUI.values()[priority!!.ordinal] else null
 )
 
 fun TaskUI.toDomain() = Task(
     title = title,
     note = description,
     taskDate = taskDate,
-    listId = categoryId,
+    listId = listId,
+    listColor = listColor,
     isActive = isActive,
     alarmTime = alarmTime,
+    priority = if(priority != null) Priority.values()[priority.ordinal] else null,
     id = id
 )
 

@@ -2,6 +2,12 @@
     <string name="app_name">Memorista</string>
     <string name="content_description">Image</string>
 
+    <string name="screen_title_tasks">Tasks</string>
+    <string name="screen_title_new_task">New Task</string>
+    <string name="screen_title_calendar">Calendar</string>
+    <string name="screen_title_saved">Saved</string>
+    <string name="screen_title_notifications">Notifications</string>
+
     <string name="categories_failed_message">Failed to load categories</string>
 
     <string name="task_status_tab_all">All</string>
@@ -36,7 +42,7 @@
     <string name="intro_continue_button">Continue</string>
 
     <string name="home_tasks_title">Today\'s tasks</string>
-    <string name="home_see_all_button">See all</string>
+    <string name="home_sort_button">Sort by</string>
 
     <string name="tasks_list_item_tasks_count_title">Tasks</string>
     <string name="hint_create_new_task">What do you want to do?</string>
@@ -47,4 +53,36 @@
     <string name="task_list_delete_dialog_message">Are you sure?</string>
     <string name="task_list_delete_dialog_positive_button_title">Yes</string>
     <string name="task_list_delete_dialog_negative_button_title">No</string>
+    
+    <string name="dialog_sort_default">Default</string>
+    <string name="dialog_sort_by_date">By date</string>
+    <string name="dialog_sort_by_date_and_name">By date and name</string>
+    <string name="dialog_sort_by_name">By name</string>
+    <string name="dialog_sort_by_name_and_priority">By name and priority</string>
+    <string name="dialog_sort_by_priority">By priority</string>
+    <string name="dialog_sort_by_priority_and_date">By priority and date</string>
+
+    <string name="date_today">Today</string>
+    <string name="date_tomorrow">Tomorrow</string>
+    <string name="date_yesterday">Yesterday</string>
+
+    <string name="priority_low">❗ Low</string>
+    <string name="priority_medium">❗❗ Medium</string>
+    <string name="priority_high">❗❗❗ High</string>
+    <string name="priority_extra">❗❗❗❗ Extra</string>
+
+    <string name="priority_symbol_low">❗</string>
+    <string name="priority_symbol_medium">❗❗</string>
+    <string name="priority_symbol_high">❗❗❗</string>
+    <string name="priority_symbol_extra">❗❗❗❗</string>
+    <string name="title_search">Search</string>
+    <string name="nav_title_today_tasks">Today</string>
+    <string name="nav_title_tomorrow_tasks">Tomorrow</string>
+    <string name="nav_title_this_week_tasks">This week</string>
+    <string name="nav_title_all_tasks">All</string>
+    <string name="nav_title_calendar">Calendar</string>
+    <string name="nav_title_favorites">Favorites</string>
+    <string name="nav_title_notifications">Notifications</string>
+    <string name="nav_title_categories">Categories</string>
+
 </resources>

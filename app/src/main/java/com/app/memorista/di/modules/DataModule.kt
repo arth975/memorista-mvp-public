@@ -17,7 +17,7 @@ val dataModule = module {
 
     single { TaskLocalDataSource(taskDao = get()) } bind TaskDataSource::class
     single { UserLocalDataSource(userDao = get()) } bind UserDataSource::class
-    single { ListLocalDataSource(categoryDao = get()) } bind ListDataSource::class
+    single { ListLocalDataSource(listDao = get()) } bind ListDataSource::class
 }
 
 private fun provideTaskDao(localDatabase: LocalDatabase): TaskDao = localDatabase.getTaskDao()

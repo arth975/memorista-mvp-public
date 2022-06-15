@@ -1,13 +1,11 @@
 package com.app.memorista.ui.viewmodels
 
-import com.app.memorista.domain.usecases.list.FilterTasksByStateUseCase
 import com.app.memorista.domain.usecases.list.GetAllListsUseCase
-import com.app.memorista.domain.usecases.task.FetchTasksByCategoryIdAndDateUseCase
-import com.app.memorista.models.TaskUI
-import com.app.memorista.utils.models.Resource
-import kotlinx.coroutines.channels.BufferOverflow
-import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.asSharedFlow
+import com.app.memorista.domain.usecases.task.ChangeTaskActivityStateUseCase
+import com.app.memorista.domain.usecases.task.GetTasksByDateUseCase
+import com.app.memorista.mappers.toUI
+import kotlinx.coroutines.flow.map
+import java.time.LocalDate
 
 /**
  * @ClassName: MainViewModel
@@ -16,14 +14,13 @@ import kotlinx.coroutines.flow.asSharedFlow
  * @Date: 4/2/2022 10:55 AM
  */
 class HomeViewModel(
-    getAllListsUseCase: GetAllListsUseCase,
-    private val fetchTasksByCategoryIdAndDateUseCase: FetchTasksByCategoryIdAndDateUseCase,
-    private val filterByStateUseCase: FilterTasksByStateUseCase
-) : CommonViewModel(getAllListsUseCase) {
+    getAllLists: GetAllListsUseCase,
+    changeTaskActivity: ChangeTaskActivityStateUseCase,
+    private val getTasksByDate: GetTasksByDateUseCase,
+) : CommonViewModel(getAllLists, changeTaskActivity) {
 
-    private val mTasksFlow = MutableSharedFlow<Resource<List<TaskUI>>>(
-        replay = 1,
-        onBufferOverflow = BufferOverflow.DROP_OLDEST
-    )
-    val tasksFlow = mTasksFlow.asSharedFlow()
+    val tasksFlow by lazy {
+        getTasksByDate(LocalDate.now())
+            .map { it.map { task -> task.toUI() } }
+    }
 }

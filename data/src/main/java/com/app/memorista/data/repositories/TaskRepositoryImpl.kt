@@ -8,12 +8,13 @@ import com.app.memorista.domain.models.params.TaskParams
 import com.app.memorista.domain.repositories.TaskRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import java.time.LocalDate
 
 class TaskRepositoryImpl(
     private val localDataSource: TaskDataSource
 ) : TaskRepository {
-    override fun getByListId(params: TaskParams): Flow<List<Task>> {
-        return localDataSource.getTasksByCategoryIdAndDate(params.listId, params.date)
+    override fun getFlowByDate(date: LocalDate): Flow<List<Task>> {
+        return localDataSource.getTasksFlowByDate(date)
             .map { entities -> entities.map { it.toDomain() } }
     }
 

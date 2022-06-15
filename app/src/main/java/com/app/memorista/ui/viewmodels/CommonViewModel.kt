@@ -3,16 +3,20 @@ package com.app.memorista.ui.viewmodels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.app.memorista.domain.usecases.list.GetAllListsUseCase
+import com.app.memorista.domain.usecases.task.ChangeTaskActivityStateUseCase
 import com.app.memorista.domain.utils.ResultOf
+import com.app.memorista.mappers.toDomain
 import com.app.memorista.mappers.toUI
 import com.app.memorista.models.TaskListUI
+import com.app.memorista.models.TaskUI
 import com.app.memorista.utils.models.Resource
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-open class CommonViewModel(
-    protected val getAllListsUseCase: GetAllListsUseCase
+abstract class CommonViewModel(
+    protected val getAllLists: GetAllListsUseCase,
+    protected val changeTaskActivityState: ChangeTaskActivityStateUseCase
 ) : ViewModel() {
 
     private val mListsFlow = MutableStateFlow<Resource<List<TaskListUI>>>(Resource.loading())
@@ -24,7 +28,7 @@ open class CommonViewModel(
 
     private fun fetchLists() {
         viewModelScope.launch {
-            when (val result = getAllListsUseCase()) {
+            when (val result = getAllLists()) {
                 is ResultOf.Success -> {
                     var uiCategories: List<TaskListUI>
                     result.data.collect { categories ->
@@ -35,6 +39,12 @@ open class CommonViewModel(
                 is ResultOf.Error ->
                     mListsFlow.value = Resource.error(result.exception, result.message)
             }
+        }
+    }
+
+    fun changeTaskActivity(task: TaskUI, isActive: Boolean) {
+        viewModelScope.launch {
+            changeTaskActivityState(task.toDomain(), isActive)
         }
     }
 

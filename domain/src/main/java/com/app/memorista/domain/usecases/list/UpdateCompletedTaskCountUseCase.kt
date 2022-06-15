@@ -1,15 +1,16 @@
 package com.app.memorista.domain.usecases.list
 
+import com.app.memorista.domain.models.calculateCount
 import com.app.memorista.domain.repositories.ListRepository
 
-class UpdateListCompletedTaskCountUseCase(
+class UpdateCompletedTaskCountUseCase(
     private val listRepository: ListRepository
-) : UpdateListTaskUseCase() {
+) {
 
     suspend operator fun invoke(listId: Long, isIncremented: Boolean) {
         listRepository.getById(listId).also {
-            listRepository
-                .update(it.copy(completedTaskPercent = calculateCount(it.completedTaskPercent, true)))
+            val newCompletedCount = it.calculateCount(it.completedTaskCount, isIncremented)
+            listRepository.update(it.copy(completedTaskCount = newCompletedCount))
         }
     }
 }

@@ -9,7 +9,7 @@ class TaskLocalDataSource(
     private val taskDao: TaskDao
 ) : TaskDataSource {
 
-    override fun getTasksByCategoryIdAndDate(id: Long, date: LocalDate): Flow<List<TaskEntity>> {
+    override fun getTasksFlowByDate(date: LocalDate): Flow<List<TaskEntity>> {
         return taskDao.getTasksFlowByDate(date)
     }
 

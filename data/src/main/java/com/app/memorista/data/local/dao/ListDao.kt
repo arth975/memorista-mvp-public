@@ -15,6 +15,9 @@ interface ListDao {
     @Query("SELECT * FROM lists WHERE id = :id")
     fun getListsWithTasksFlowById(id: Long): Flow<ListWithTasksRelation>
 
+    @Query("SELECT * FROM lists WHERE id = :id")
+    suspend fun getById(id: Long): ListEntity
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertList(listEntity: ListEntity): Long
 

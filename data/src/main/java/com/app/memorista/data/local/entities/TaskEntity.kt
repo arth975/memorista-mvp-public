@@ -18,8 +18,10 @@ data class TaskEntity(
     var title: String,
     var description: String,
     var listId: Long,
+    val listColor: Int,
     var taskDate: LocalDate? = null,
     var taskTime: LocalTime? = null,
     var alarmTime: LocalTime? = null,
-    var isActive: Boolean = false
+    var isActive: Boolean = false,
+    var priorityCode: Int? = null
 )

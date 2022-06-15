@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
         android:text="@string/button_new_task"
-        app:icon="@drawable/ic_task_icon" />
+        app:icon="@drawable/ic_task_checked" />
 
     <View
         android:layout_width="match_parent"

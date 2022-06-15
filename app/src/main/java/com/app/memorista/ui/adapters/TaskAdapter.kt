@@ -1,5 +1,6 @@
 package com.app.memorista.ui.adapters
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -7,6 +8,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.app.memorista.databinding.ItemTaskBinding
 import com.app.memorista.models.TaskUI
+import com.app.memorista.utils.GradientContent
 
 /**
  * @ClassName: TaskAdapter
@@ -15,7 +17,7 @@ import com.app.memorista.models.TaskUI
  * @Date: 3/10/2022 11:27 PM
  */
 class TaskAdapter(
-    private val onItemClick: ((TaskUI?) -> Unit)? = null,
+    private val onCheckedChangeListener: OnCheckedChangeListener? = null
 ) : ListAdapter<TaskUI, TaskAdapter.TaskItemViewHolder>(TaskItemCallback()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskItemViewHolder {
         return TaskItemViewHolder(
@@ -30,12 +32,20 @@ class TaskAdapter(
         holder.bind(getItem(position))
     }
 
+    @SuppressLint("SetTextI18n")
     inner class TaskItemViewHolder(private val binding: ItemTaskBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(taskItem: TaskUI) {
             with(binding) {
-                root.setOnClickListener { onItemClick?.invoke(taskItem) }
                 task = taskItem
+                listColor.background = GradientContent.createGradient(taskItem.listColor)
+                checkIsActive.setOnCheckedChangeListener { _, isChecked ->
+                    if (isChecked != taskItem.isActive)
+                        onCheckedChangeListener?.onCheckedChange(taskItem, isChecked)
+                }
+
+                if (taskItem.priority != null)
+                    textTitle.text = taskItem.priority.symbol + textTitle.text
             }
         }
     }
@@ -48,7 +58,7 @@ class TaskAdapter(
             oldItem == newItem
     }
 
-    interface OnItemClickListener {
-        fun onItemClick(item: TaskUI)
+    interface OnCheckedChangeListener {
+        fun onCheckedChange(item: TaskUI, isChecked: Boolean)
     }
 }

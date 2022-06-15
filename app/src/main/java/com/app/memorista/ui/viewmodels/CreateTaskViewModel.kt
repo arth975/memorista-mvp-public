@@ -1,10 +1,13 @@
 package com.app.memorista.ui.viewmodels
 
 import androidx.lifecycle.viewModelScope
+import com.app.memorista.domain.models.Task
 import com.app.memorista.domain.models.params.NewTaskParams
 import com.app.memorista.domain.usecases.list.GetAllListsUseCase
+import com.app.memorista.domain.usecases.task.ChangeTaskActivityStateUseCase
 import com.app.memorista.domain.usecases.task.CreateTaskUseCase
 import com.app.memorista.domain.usecases.task.ValidateTaskInputUseCase
+import com.app.memorista.models.PriorityUI
 import com.app.memorista.models.TaskListUI
 import com.app.memorista.models.Validation
 import com.app.memorista.utils.models.TaskDetails
@@ -16,14 +19,14 @@ import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import java.time.LocalDate
-import java.time.LocalDateTime
 import java.time.LocalTime
 
 class CreateTaskViewModel(
-    getAllListsUseCase: GetAllListsUseCase,
-    private val validateTaskInputUseCase: ValidateTaskInputUseCase,
-    private val createTaskUseCase: CreateTaskUseCase
-) : CommonViewModel(getAllListsUseCase) {
+    getAllLists: GetAllListsUseCase,
+    changeTaskActivity: ChangeTaskActivityStateUseCase,
+    private val validateTaskInput: ValidateTaskInputUseCase,
+    private val createTask: CreateTaskUseCase
+) : CommonViewModel(getAllLists, changeTaskActivity) {
 
     private val mValidationSuccessFlow = MutableSharedFlow<Validation>(
         replay = 1,
@@ -34,42 +37,49 @@ class CreateTaskViewModel(
     private val mTaskDetailsFlow = MutableStateFlow(TaskDetails())
     val taskDetailsFlow = mTaskDetailsFlow.asStateFlow()
 
-    fun createTask(
-        title: String?,
-        notes: String?,
-        categoryId: Long?,
-        taskDateTime: LocalDateTime?,
-        alarmDateTime: LocalDateTime? = null
-    ) {
+    fun validate(title: String?) {
         viewModelScope.launch {
-            val isValid = validateTaskInputUseCase(
-                NewTaskParams(
-                    title = title,
-                    notes = notes,
-                    categoryId = categoryId,
-                    taskDateTime = taskDateTime,
-                    alarmDateTime = alarmDateTime
+            taskDetailsFlow.value.also {
+                val isValid = validateTaskInput(
+                    NewTaskParams(
+                        title = title,
+                        notes = it.descriptionText,
+                        listId = it.list?.id
+                    )
                 )
-            )
-            mValidationSuccessFlow.tryEmit(Validation(isValid = isValid))
+                if (isValid)
+                    createTask(
+                        Task(
+                            id = 0,
+                            title = title ?: "",
+                            note = it.descriptionText ?: "",
+                            listId = it.list?.id ?: 1,
+                            listColor = it.list?.color ?: 0,
+                            taskDate = it.date,
+                            taskTime = it.time,
+                            isActive =  it.isActive
+                        )
+                    )
+                mValidationSuccessFlow.tryEmit(Validation(isValid = isValid))
+            }
         }
     }
 
-    fun selectDate(date: LocalDate) {
+    fun changeDate(date: LocalDate?) {
         mTaskDetailsFlow.value = mTaskDetailsFlow.value.copy(
             date = date,
             event = TaskDetailsEvent.DateChanged
         )
     }
 
-    fun selectTime(time: LocalTime) {
+    fun changeTime(time: LocalTime?) {
         mTaskDetailsFlow.value = mTaskDetailsFlow.value.copy(
             time = time,
             event = TaskDetailsEvent.TimeChanged
         )
     }
 
-    fun setActivity(isActive: Boolean) {
+    fun changeActivity(isActive: Boolean) {
         mTaskDetailsFlow.value = mTaskDetailsFlow.value.copy(
             isActive = isActive,
             event = TaskDetailsEvent.ActivityChanged
@@ -80,6 +90,13 @@ class CreateTaskViewModel(
         mTaskDetailsFlow.value = mTaskDetailsFlow.value.copy(
             list = list,
             event = TaskDetailsEvent.ListChanged
+        )
+    }
+
+    fun changePriority(priority: PriorityUI?) {
+        mTaskDetailsFlow.value = mTaskDetailsFlow.value.copy(
+            event = TaskDetailsEvent.PriorityChanged,
+            priority = priority
         )
     }
 }

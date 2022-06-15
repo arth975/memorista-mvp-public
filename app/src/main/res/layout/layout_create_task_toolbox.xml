@@ -15,7 +15,17 @@
         app:layout_constraintStart_toStartOf="@id/guide_main_start"
         app:layout_constraintTop_toTopOf="@id/button_calendar" />
 
-    <ImageButton
+    <View
+        android:id="@+id/circle_selected_list_toolbox"
+        android:layout_width="@dimen/task_list_circle_size"
+        android:layout_height="@dimen/task_list_circle_size"
+        android:background="@drawable/shape_circle"
+        android:layout_marginStart="6dp"
+        app:layout_constraintBottom_toBottomOf="@+id/text_selected_list_name"
+        app:layout_constraintStart_toEndOf="@+id/text_selected_list_name"
+        app:layout_constraintTop_toTopOf="@+id/text_selected_list_name" />
+
+    <!--<ImageButton
         android:id="@+id/button_time"
         android:layout_width="@dimen/create_task_common_icon_size"
         android:layout_height="@dimen/create_task_common_icon_size"
@@ -26,7 +36,7 @@
         app:layout_constraintEnd_toEndOf="@id/guide_main_end"
         app:layout_constraintTop_toTopOf="@id/line_top"
         app:srcCompat="@drawable/ic_alarm"
-        app:tint="@color/secondary" />
+        app:tint="@color/secondary" />-->
 
     <ImageButton
         android:id="@+id/button_calendar"

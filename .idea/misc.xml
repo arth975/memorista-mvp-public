@@ -3,16 +3,28 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/drawable/background_bottom_sheet.xml" value="0.1" />
         <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/drawable/background_card_item.xml" value="0.2125" />
         <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/drawable/background_gradient_intro.xml" value="0.145" />
+        <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/drawable/background_nav_layout_header.xml" value="0.1" />
+        <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/drawable/background_navigation_drawer.xml" value="0.1" />
         <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/drawable/background_single_list_sheet.xml" value="0.1545" />
+        <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/drawable/background_sort_bottom_sheet.xml" value="0.1" />
         <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/drawable/checkbox_button.xml" value="0.1015" />
         <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/drawable/checkbox_checked.xml" value="0.1015" />
         <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/drawable/checkbox_unchecked.xml" value="0.1015" />
         <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/drawable/ic_alarm.xml" value="0.1535" />
+        <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/drawable/ic_bookmark_checked.xml" value="0.1615" />
+        <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/drawable/ic_bookmark_fill_accent.xml" value="0.1615" />
+        <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/drawable/ic_bookmark_stroked.xml" value="0.1615" />
         <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/drawable/ic_calendar.xml" value="0.1415" />
         <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/drawable/ic_calendar_week.xml" value="0.1535" />
         <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/drawable/ic_color_picker.xml" value="0.2125" />
+        <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/drawable/ic_nav_bookmark.xml" value="0.1" />
+        <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/drawable/ic_nav_calendar.xml" value="0.1" />
+        <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/drawable/ic_nav_notification.xml" value="0.1" />
+        <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/drawable/ic_nav_task.xml" value="0.1" />
+        <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/drawable/ic_task_icon.xml" value="0.16" />
         <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/drawable/list_gradient_1.xml" value="0.1265" />
         <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/drawable/list_gradient_2.xml" value="0.145" />
         <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/drawable/list_gradient_3.xml" value="0.145" />
@@ -20,19 +32,34 @@
         <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/drawable/list_gradient_5.xml" value="0.145" />
         <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/drawable/list_gradient_6.xml" value="0.145" />
         <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/drawable/list_gradient_7.xml" value="0.145" />
+        <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/drawable/selector_task_active.xml" value="0.1" />
+        <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/drawable/selector_task_saved.xml" value="0.1615" />
+        <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/drawable/shape_circle.xml" value="0.1565" />
+        <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/drawable/state_nav_item_background.xml" value="0.1" />
+        <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/drawable/state_nav_item_text_color.xml" value="0.1" />
         <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/layout/dialog_create_category.xml" value="0.21403508771929824" />
         <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/layout/dialog_create_component.xml" value="0.264" />
+        <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/layout/dialog_sort.xml" value="0.1" />
+        <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/layout/fragment_calendar.xml" value="0.21403508771929824" />
         <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/layout/fragment_create_task.xml" value="0.1" />
-        <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/layout/fragment_home.xml" value="0.264" />
         <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/layout/fragment_home_new.xml" value="0.264" />
         <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/layout/fragment_intro.xml" value="0.1743659420289855" />
+        <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/layout/fragment_notifications.xml" value="0.1721311475409836" />
+        <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/layout/fragment_saved_tasks.xml" value="0.21403508771929824" />
         <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/layout/fragment_single_list.xml" value="0.1" />
-        <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/layout/item_task.xml" value="0.4507978723404255" />
-        <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/layout/item_task_list.xml" value="0.536" />
+        <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/layout/item_task.xml" value="0.1" />
+        <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/layout/item_task_list.xml" value="0.6" />
+        <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/layout/item_task_list_new.xml" value="0.6" />
         <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/layout/latout_create_task_toolbox.xml" value="0.4" />
         <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/layout/layout_create_task_toolbox.xml" value="0.4" />
-        <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/layout/toolbar_main.xml" value="0.1" />
+        <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/layout/layout_nav_header.xml" value="0.264" />
+        <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/layout/toolbar_main.xml" value="0.264" />
+        <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
+        <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/menu/menu_bottom_navigation.xml" value="0.1" />
+        <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/menu/menu_home.xml" value="0.1" />
+        <entry key="..\:/Users/Lenovo/Desktop/memorista/app/src/main/res/menu/menu_task_priority.xml" value="0.1" />
         <entry key="..\:/Users/Lenovo/Desktop/to-alarm/app/src/main/res/drawable/accent_gradient.xml" value="0.1495" />
         <entry key="..\:/Users/Lenovo/Desktop/to-alarm/app/src/main/res/drawable/background_card_item.xml" value="0.253" />
         <entry key="..\:/Users/Lenovo/Desktop/to-alarm/app/src/main/res/drawable/background_create_category_dialog.xml" value="0.1945" />

@@ -3,12 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/bg_main"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_bottom_sheet"
+    app:layout_behavior="android.support.design.widget.BottomSheetBehavior"
     tools:context=".ui.fragments.IntroFragment">
 
     <com.google.android.material.checkbox.MaterialCheckBox
-        android:id="@+id/check_box"
+        android:id="@+id/check_is_active"
         style="@style/CheckBoxCommon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -21,54 +22,92 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="17dp"
         android:layout_marginTop="24dp"
+        android:layout_marginEnd="10dp"
         android:backgroundTint="@android:color/transparent"
         android:hint="@string/hint_create_new_task"
-        android:inputType="text"
+        android:importantForAutofill="no"
+        android:inputType="textMultiLine"
+        android:maxLines="5"
         android:padding="0dp"
+        android:textColor="@color/font_primary"
         android:textColorHint="@color/font_secondary_1"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@id/guide_main_end"
-        app:layout_constraintStart_toEndOf="@id/check_box"
+        app:layout_constraintEnd_toStartOf="@id/circle_selected_list"
+        app:layout_constraintStart_toEndOf="@id/check_is_active"
         app:layout_constraintTop_toTopOf="parent" />
 
-
-    <!--Task Date-->
-    <TextView
-        android:id="@+id/text_date"
-        style="@style/Text.Icon"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_date"
+        style="@style/NewTask.MaterialButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:drawableStartCompat="@drawable/ic_calendar_13"
-        app:drawableTint="@color/secondary"
+        android:layout_marginTop="@dimen/create_task_margin_date_button_top"
+        android:text="15/06"
+        android:textColor="@color/accent"
+        app:icon="@drawable/ic_calendar"
+        app:iconTint="@color/accent"
         app:layout_constraintStart_toStartOf="@id/edit_text_note"
-        app:layout_constraintTop_toBottomOf="@+id/edit_text_note" />
+        app:layout_constraintTop_toBottomOf="@id/edit_text_note"
+        app:strokeColor="@color/accent" />
 
-    <!--Task Time-->
-    <TextView
-        android:id="@+id/text_time"
-        style="@style/Text.Icon"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_time"
+        style="@style/NewTask.MaterialButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:visibility="gone"
-        app:drawableStartCompat="@drawable/ic_alarm_13"
-        app:layout_constraintStart_toEndOf="@id/text_date"
-        app:layout_constraintTop_toTopOf="@id/text_date" />
+        android:layout_marginStart="@dimen/create_task_margin_buttons_horizontal_common"
+        android:text="15:06"
+        android:textColor="@color/accent_1"
+        app:icon="@drawable/ic_alarm"
+        app:iconTint="@color/accent_1"
+        app:layout_constraintBottom_toBottomOf="@+id/button_date"
+        app:layout_constraintStart_toEndOf="@id/button_date"
+        app:layout_constraintTop_toTopOf="@+id/button_date"
+        app:strokeColor="@color/accent_1" />
 
-    <include layout="@layout/layout_create_task_toolbox" />
+    <View
+        android:id="@+id/circle_selected_list"
+        android:layout_width="@dimen/task_list_circle_size"
+        android:layout_height="@dimen/task_list_circle_size"
+        android:background="@drawable/shape_circle"
+        app:layout_constraintBottom_toBottomOf="@+id/check_is_active"
+        app:layout_constraintEnd_toStartOf="@+id/guide_main_end"
+        app:layout_constraintTop_toTopOf="@+id/check_is_active" />
+
+    <ImageButton
+        android:id="@+id/button_priority"
+        style="@style/NewTask.ImageButton"
+        android:layout_width="@dimen/new_task_image_button_size"
+        android:layout_height="@dimen/new_task_image_button_size"
+        android:layout_marginTop="@dimen/create_task_margin_priority_button_top"
+        android:contentDescription="@string/content_description"
+        app:layout_constraintStart_toStartOf="@id/guide_main_start"
+        app:layout_constraintTop_toBottomOf="@id/button_date"
+        app:srcCompat="@drawable/ic_priority" />
+
+    <ImageButton
+        android:id="@+id/button_select_alarm_time"
+        style="@style/NewTask.ImageButton"
+        android:layout_width="@dimen/new_task_image_button_size"
+        android:layout_height="@dimen/new_task_image_button_size"
+        android:layout_marginStart="@dimen/create_task_margin_alarm_button_start"
+        android:contentDescription="@string/content_description"
+        app:layout_constraintStart_toEndOf="@id/button_priority"
+        app:layout_constraintTop_toTopOf="@id/button_priority"
+        app:srcCompat="@drawable/ic_calendar_filled" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_lists"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/create_task_margin_rv_top"
+        android:overScrollMode="never"
         app:layout_constraintEnd_toEndOf="@id/guide_main_end"
         app:layout_constraintStart_toStartOf="@id/guide_main_start"
-        app:layout_constraintTop_toBottomOf="@id/line_bottom" />
+        app:layout_constraintTop_toBottomOf="@+id/button_priority" />
 
-    <!--<com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_add_new_task"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_create"
         style="@style/FabCommon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -76,7 +115,7 @@
         android:contentDescription="@string/content_description"
         app:fabCustomSize="@dimen/fab_custom_size"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/guide_main_end" />-->
+        app:layout_constraintEnd_toEndOf="@id/guide_main_end" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guide_toolbox_top"

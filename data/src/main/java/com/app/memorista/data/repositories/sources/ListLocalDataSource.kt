@@ -7,13 +7,13 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 class ListLocalDataSource(
-    private val categoryDao: ListDao
+    private val listDao: ListDao
 ) : ListDataSource {
 
     override suspend fun fetchAllCategories(): Flow<List<ListEntity>> {
         var data: Flow<List<ListEntity>> = flow{}
         try {
-            data = categoryDao.getAllListsFlow()
+            data = listDao.getAllListsFlow()
         } catch (e: Exception) {
             e.printStackTrace()
         }
@@ -21,18 +21,20 @@ class ListLocalDataSource(
     }
 
     override fun fetchCategoryWithTasksByCategoryId(id: Long): Flow<ListWithTasksRelation> =
-        categoryDao.getListsWithTasksFlowById(id)
+        listDao.getListsWithTasksFlowById(id)
+
+    override suspend fun fetchById(id: Long): ListEntity = listDao.getById(id)
 
     override suspend fun addList(listEntity: ListEntity): Long {
-        return categoryDao.insertList(listEntity)
+        return listDao.insertList(listEntity)
     }
 
     override suspend fun updateList(listEntity: ListEntity) {
-        categoryDao.updateList(listEntity)
+        listDao.updateList(listEntity)
     }
 
     override suspend fun deleteList(listEntity: ListEntity) {
-        categoryDao.deleteList(listEntity)
+        listDao.deleteList(listEntity)
     }
 
 }

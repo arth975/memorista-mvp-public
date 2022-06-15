@@ -32,7 +32,7 @@ import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class SingleListBottomSheetDialog : BottomSheetDialogFragment(), DialogInterface.OnClickListener {
+class SingleListBottomSheetDialog : ExpandedBottomSheetDialog(), DialogInterface.OnClickListener {
 
     companion object {
         const val TAG = "SingleListFragment"
@@ -47,16 +47,6 @@ class SingleListBottomSheetDialog : BottomSheetDialogFragment(), DialogInterface
             requireContext(),
             R.drawable.background_single_list_sheet
         )!!
-    }
-
-    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val dialog = (super.onCreateDialog(savedInstanceState) as BottomSheetDialog)
-        dialog.behavior.also {
-            it.state = BottomSheetBehavior.STATE_EXPANDED
-            it.skipCollapsed = true
-            it.peekHeight = Resources.getSystem().displayMetrics.heightPixels
-        }
-        return dialog
     }
 
     override fun onCreateView(
@@ -74,14 +64,6 @@ class SingleListBottomSheetDialog : BottomSheetDialogFragment(), DialogInterface
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         setupUI()
         handleFlows()
-    }
-
-    override fun onStart() {
-        super.onStart()
-        val metrics = DisplayMetrics()
-        requireActivity().windowManager?.defaultDisplay?.getMetrics(metrics)
-        mBinding?.root?.layoutParams?.height = metrics.heightPixels
-        mBinding?.root?.requestLayout()
     }
 
     override fun onDismiss(dialog: DialogInterface) {

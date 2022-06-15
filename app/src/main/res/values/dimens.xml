@@ -22,9 +22,9 @@
     <dimen name="border_radius_create_category_dialog">12dp</dimen>
     <dimen name="border_radius_categories_spinner_popup">12dp</dimen>
 
-    <dimen name="task_item_padding_end">20dp</dimen>
+    <dimen name="task_item_padding_end">15dp</dimen>
     <dimen name="task_item_padding_start">11dp</dimen>
-    <dimen name="task_item_padding_vertical">16dp</dimen>
+    <dimen name="task_item_padding_vertical">12dp</dimen>
     <dimen name="task_item_font_time">10sp</dimen>
     <dimen name="task_item_font_description">11sp</dimen>
     <dimen name="task_item_size_checkbox">16dp</dimen>
@@ -34,7 +34,8 @@
     <dimen name="task_item_margin_text_horizontal">10dp</dimen>
     <dimen name="task_item_gl_top">0.24</dimen>
     <dimen name="task_item_gl_bottom">0.76</dimen>
-    <dimen name="task_item_font_size_date_time">12sp</dimen>
+    <dimen name="task_item_font_size_date_time">11sp</dimen>
+    <dimen name="task_item_width_list_color">15dp</dimen>
 
     <dimen name="item_spinner_categories_font_size">16sp</dimen>
     <dimen name="item_spinner_categories_padding_vertical">7dp</dimen>
@@ -54,6 +55,11 @@
     <dimen name="create_task_margin_selected_date_start">14dp</dimen>
     <dimen name="create_task_margin_selected_date_underline_end">14dp</dimen>
     <dimen name="create_task_height_underline">0.6dp</dimen>
+    <dimen name="create_task_padding_material_button_vertical">6dp</dimen>
+    <dimen name="create_task_padding_material_button_horizontal">10dp</dimen>
+    <dimen name="create_task_padding_material_button_text_start">8dp</dimen>
+    <dimen name="create_task_radius_material_button">7dp</dimen>
+    <dimen name="create_task_font_size_material_button">12sp</dimen>
 
     <dimen name="home_categories_margin_top">12dp</dimen>
     <dimen name="home_categories_margin_spinner_end">15dp</dimen>
@@ -87,18 +93,36 @@
     <dimen name="intro_border_radius_name">25dp</dimen>
     <dimen name="intro_height_name">50dp</dimen>
 
-    <dimen name="home_margin_lists_top">15dp</dimen>
+    <dimen name="task_list_margin_card_top">15dp</dimen>
     <dimen name="home_margin_today_tasks_top">26dp</dimen>
     <dimen name="home_margin_tasks_title_top">29dp</dimen>
     <dimen name="home_font_size_tasks_title">18sp</dimen>
-    <dimen name="home_font_size_see_all_button">12sp</dimen>
+    <dimen name="home_font_size_sort_button">14sp</dimen>
 
-    <dimen name="task_list_item_font_size_name">16sp</dimen>
+    <dimen name="task_list_item_font_size_name">15sp</dimen>
     <dimen name="task_list_item_font_size_tasks_count">12sp</dimen>
     <dimen name="create_task_common_icon_size">20dp</dimen>
     <dimen name="create_component_dialog_width">220dp</dimen>
     <dimen name="task_list_margin_button_end">12dp</dimen>
     <dimen name="create_list_margin_top">24dp</dimen>
+    <dimen name="task_list_circle_size">14dp</dimen>
+    <dimen name="create_task_margin_buttons_horizontal_common">13dp</dimen>
+    <dimen name="create_task_margin_priority_button_top">27dp</dimen>
+    <dimen name="new_task_image_button_size">18dp</dimen>
+    <dimen name="create_task_margin_rv_top">16dp</dimen>
+    <dimen name="create_task_margin_alarm_button_start">10dp</dimen>
+    <dimen name="create_task_margin_date_button_top">10dp</dimen>
+    <dimen name="task_list_width">100dp</dimen>
+    <dimen name="task_list_height">125dp</dimen>
+    <dimen name="task_list_card_corner_radius">12dp</dimen>
+    <dimen name="task_list_new_card_icon_size">25dp</dimen>
+    <dimen name="task_list_margin_card_end">15dp</dimen>
+    <dimen name="common_stroke_width">0.6dp</dimen>
+    <dimen name="task_item_width_saved_checkbox">18dp</dimen>
+    <dimen name="task_item_height_saved_checkbox">24dp</dimen>
+    <dimen name="task_item_margin_saved_checkbox_top">7dp</dimen>
+    <dimen name="task_item_margin_date_top">7dp</dimen>
+    <dimen name="nav_drawer_border_radius">18dp</dimen>
 
     <item name="task_list_guide_percent_start" format="float" type="dimen">0.06</item>
     <item name="task_list_guide_percent_end" format="float" type="dimen">0.96</item>

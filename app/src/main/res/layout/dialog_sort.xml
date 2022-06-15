@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_bottom_sheet"
+    android:orientation="vertical">
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginBottom="10dp"
+        android:checkedButton="@id/radio_default">
+
+        <RadioButton
+            android:id="@+id/radio_default"
+            style="@style/RadioButton.Sort"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/dialog_sort_default" />
+
+        <RadioButton
+            android:id="@+id/radio_by_date"
+            style="@style/RadioButton.Sort"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/dialog_sort_by_date" />
+
+        <RadioButton
+            android:id="@+id/radio_by_date_and_name"
+            style="@style/RadioButton.Sort"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/dialog_sort_by_date_and_name" />
+
+        <RadioButton
+            android:id="@+id/radio_by_name"
+            style="@style/RadioButton.Sort"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/dialog_sort_by_name" />
+
+        <RadioButton
+            android:id="@+id/radio_by_name_and_priority"
+            style="@style/RadioButton.Sort"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/dialog_sort_by_name_and_priority" />
+
+        <RadioButton
+            android:id="@+id/radio_by_priority"
+            style="@style/RadioButton.Sort"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/dialog_sort_by_priority" />
+
+        <RadioButton
+            android:id="@+id/radio_by_priority_and_date"
+            style="@style/RadioButton.Sort"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/dialog_sort_by_priority_and_date" />
+
+    </RadioGroup>
+
+</FrameLayout>

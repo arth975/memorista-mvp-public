@@ -6,5 +6,6 @@ sealed class TaskDetailsEvent {
     object TimeChanged : TaskDetailsEvent()
     object ListChanged : TaskDetailsEvent()
     object ActivityChanged : TaskDetailsEvent()
+    object PriorityChanged : TaskDetailsEvent()
     object Initial : TaskDetailsEvent()
 }

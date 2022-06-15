@@ -5,11 +5,11 @@ import com.app.memorista.domain.models.params.TaskParams
 import com.app.memorista.domain.repositories.TaskRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import java.time.LocalDate
 
-class FetchTasksByCategoryIdAndDateUseCase(
+class GetTasksByDateUseCase(
     private val taskRepository: TaskRepository
 ) {
-    operator fun invoke(params: TaskParams): Flow<List<Task>> =
-        taskRepository.getByListId(params)
-            .map { tasks -> tasks.sortedByDescending { it.taskDate } }
+    operator fun invoke(date: LocalDate): Flow<List<Task>> =
+        taskRepository.getFlowByDate(date)
 }

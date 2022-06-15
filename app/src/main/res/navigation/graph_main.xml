@@ -3,54 +3,47 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/graph_main"
-    app:startDestination="@id/introFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.app.memorista.ui.fragments.HomeFragment"
-        tools:layout="@layout/fragment_home"
-        android:label="">
-        <action
-            android:id="@+id/action_homeFragment_to_createTaskFragment"
-            app:destination="@id/createTaskFragment"
-            app:enterAnim="@anim/slide_in"
-            app:exitAnim="@anim/fade_out"
-            app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/slide_out" />
-        <action
-            android:id="@+id/action_homeFragment_to_createComponentDialogFragment"
-            app:destination="@id/createComponentDialogFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/createTaskFragment"
-        android:name="com.app.memorista.ui.fragments.CreateTaskFragment"
-        android:label="AddNewTaskFragment" />
+        android:label="@string/screen_title_tasks"
+        tools:layout="@layout/fragment_home"/>
     <fragment
         android:id="@+id/introFragment"
         android:name="com.app.memorista.ui.fragments.IntroFragment"
         android:label="fragment_intro"
-        tools:layout="@layout/fragment_intro" >
-        <action
-            android:id="@+id/action_introFragment_to_homeFragment"
-            app:destination="@id/homeFragment"
-            app:enterAnim="@anim/fade_in"
-            app:exitAnim="@anim/fade_out"
-            app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/slide_down"
-            app:launchSingleTop="true"
-            app:popUpTo="@navigation/graph_main"
-            app:popUpToInclusive="true"/>
-    </fragment>
-    <dialog
-        android:id="@+id/createComponentDialogFragment"
-        android:name="com.app.memorista.ui.dialogs.CreateComponentDialogFragment"
-        android:label="CreateComponentDialogFragment" >
-        <action
-            android:id="@+id/action_createComponentDialogFragment_to_createTaskFragment2"
-            app:destination="@id/createTaskFragment"
-            app:enterAnim="@anim/slide_in"
-            app:exitAnim="@anim/fade_out"
-            app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/slide_out" />
-    </dialog>
+        tools:layout="@layout/fragment_intro" />
+    <fragment
+        android:id="@+id/calendarFragment"
+        android:name="com.app.memorista.ui.fragments.CalendarFragment"
+        android:label="@string/screen_title_calendar"
+        tools:layout="@layout/fragment_calendar" />
+    <fragment
+        android:id="@+id/notificationsFragment"
+        android:name="com.app.memorista.ui.fragments.NotificationsFragment"
+        android:label="@string/screen_title_notifications"
+        tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/savedTasksFragment"
+        android:name="com.app.memorista.ui.fragments.SavedTasksFragment"
+        android:label="@string/screen_title_saved"
+        tools:layout="@layout/fragment_saved_tasks" />
+    <fragment
+        android:id="@+id/allTasksFragment"
+        android:name="com.app.memorista.ui.fragments.AllTasksFragment"
+        android:label="AllTasksFragment" />
+    <fragment
+        android:id="@+id/categoriesFragment"
+        android:name="com.app.memorista.ui.fragments.CategoriesFragment"
+        android:label="CategoriesFragment" />
+    <fragment
+        android:id="@+id/thisWeekTasksFragment"
+        android:name="com.app.memorista.ui.fragments.ThisWeekTasksFragment"
+        android:label="ThisWeekTasksFragment" />
+    <fragment
+        android:id="@+id/tomorrowTasksFragment"
+        android:name="com.app.memorista.ui.fragments.TomorrowTasksFragment"
+        android:label="TomorrowTasksFragment" />
 </navigation>

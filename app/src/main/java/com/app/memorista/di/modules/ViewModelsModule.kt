@@ -7,16 +7,17 @@ import org.koin.dsl.module
 val viewModelsModule = module {
     viewModel {
         HomeViewModel(
-            getAllListsUseCase = get(),
-            fetchTasksByCategoryIdAndDateUseCase = get(),
-            filterByStateUseCase = get()
+            getAllLists = get(),
+            getTasksByDate = get(),
+            changeTaskActivity = get()
         )
     }
     viewModel {
         CreateTaskViewModel(
-            getAllListsUseCase = get(),
-            validateTaskInputUseCase = get(),
-            createTaskUseCase = get()
+            getAllLists = get(),
+            validateTaskInput = get(),
+            createTask = get(),
+            changeTaskActivity = get()
         )
     }
 

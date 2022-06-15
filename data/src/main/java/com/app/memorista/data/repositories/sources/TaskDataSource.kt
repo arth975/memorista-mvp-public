@@ -6,7 +6,7 @@ import java.time.LocalDate
 
 interface TaskDataSource {
 
-    fun getTasksByCategoryIdAndDate(id: Long, date: LocalDate): Flow<List<TaskEntity>>
+    fun getTasksFlowByDate(date: LocalDate): Flow<List<TaskEntity>>
 
     suspend fun addTask(task: TaskEntity)
 

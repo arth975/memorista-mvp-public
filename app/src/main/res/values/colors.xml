@@ -8,21 +8,24 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="primary">#1C79F6</color>
-    <color name="primaryVariant">#0952B5</color>
+    <color name="primary">#234B82</color>
+    <color name="primaryVariant">#123D78</color>
     <color name="onPrimary">#ffffff</color>
 
     <color name="primary_background">#FFF6F6</color>
 
     <color name="main">#1E1D1D</color>
-    <color name="secondary">#B7B7B7</color>
+    <color name="secondary">#CDCDCD</color>
+    <color name="nav_drawer_item_background">#5ECDCDCD</color>
 
     <color name="font_primary">#1E1D1D</color>
-    <color name="font_secondary_1">@color/secondary</color>
-    <color name="font_secondary_2">#D6D1D1</color>
+    <color name="font_secondary_1">#CDCDCD</color>
+    <color name="font_secondary_2">#B7B7B7</color>
     <color name="font_secondary_3">#CECCCC</color>
     <color name="font_secondary_4">#B9BCBA</color>
     <color name="font_current_date">#999797</color>
+
+    <color name="orange">#FF4D00</color>
 
     <color name="bg_main">#ffffff</color>
     <color name="bg_secondary_1">#EAEAEA</color>
@@ -30,9 +33,9 @@
     <color name="bg_secondary_3">#F1F1F1</color>
     <color name="bg_secondary_4">#FAFAFA</color>
 
-    <color name="accent">#1C79F6</color>
-    <color name="accent_1">#8CF899BB</color>
-    <color name="accent_2">#8CFAD8E4</color>
+    <color name="accent">#234B82</color>
+    <color name="accent_1">#FF4D00</color>
+    <color name="accent_2">#2B8D13</color>
 
     <color name="shadow_ambient">#AEC6C6C6</color>
     <color name="shadow_spot">#B2B6B5B5</color>
@@ -45,4 +48,9 @@
     <color name="ripple">#878787</color>
 
     <color name="linear_progress_track_color">@color/secondary</color>
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="light_blue_900">#FF01579B</color>
+    <color name="light_blue_A200">#FF40C4FF</color>
+    <color name="light_blue_A400">#FF00B0FF</color>
+    <color name="black_overlay">#66000000</color>
 </resources>

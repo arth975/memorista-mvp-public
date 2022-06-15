@@ -10,6 +10,8 @@ interface ListDataSource {
 
     fun fetchCategoryWithTasksByCategoryId(id: Long): Flow<ListWithTasksRelation>
 
+    suspend fun fetchById(id: Long): ListEntity
+
     suspend fun addList(listEntity: ListEntity): Long
 
     suspend fun updateList(listEntity: ListEntity)

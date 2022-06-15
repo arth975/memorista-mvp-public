@@ -7,11 +7,12 @@ import com.app.memorista.domain.repositories.ListRepository
 import com.app.memorista.domain.repositories.TaskRepository
 import com.app.memorista.domain.repositories.UserRepository
 import com.app.memorista.domain.usecases.list.*
+import com.app.memorista.domain.usecases.task.ChangeTaskActivityStateUseCase
 import com.app.memorista.domain.usecases.task.CreateTaskUseCase
-import com.app.memorista.domain.usecases.task.FetchTasksByCategoryIdAndDateUseCase
+import com.app.memorista.domain.usecases.task.GetTasksByDateUseCase
 import com.app.memorista.domain.usecases.task.ValidateTaskInputUseCase
 import com.app.memorista.domain.usecases.user.CreateUserUseCase
-import com.app.memorista.domain.usecases.user.FetchUserUseCase
+import com.app.memorista.domain.usecases.user.GetUserUseCase
 import com.app.memorista.domain.usecases.user.ValidateUserNameUseCase
 import org.koin.dsl.bind
 import org.koin.dsl.module
@@ -29,15 +30,16 @@ val domainModule = module {
     single { DeleteListUseCase(listRepository = get()) }
     single { UpdateListTaskCountUseCase(listRepository = get()) }
     single { GetListWithTasksUseCase(listRepository = get()) }
+    single { UpdateCompletedTaskCountUseCase(listRepository = get()) }
 
     //Task's use cases
     single { ValidateTaskInputUseCase() }
-    single { FilterTasksByStateUseCase() }
-    single { CreateTaskUseCase(taskRepository = get(), updateListTaskCount = get()) }
-    single { FetchTasksByCategoryIdAndDateUseCase(taskRepository = get()) }
+    single { CreateTaskUseCase(taskRepository = get(), updateListTaskCount = get(), updateCompletedTaskCount = get()) }
+    single { GetTasksByDateUseCase(taskRepository = get()) }
+    single { ChangeTaskActivityStateUseCase(taskRepository = get(), updateCompletedTaskCount = get()) }
 
     //User's use cases
     single { CreateUserUseCase(repo = get()) }
-    single { FetchUserUseCase(repo = get()) }
+    single { GetUserUseCase(repo = get()) }
     single { ValidateUserNameUseCase() }
 }

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -8,30 +10,46 @@
             type="com.app.memorista.models.TaskListUI" />
     </data>
 
-    <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/task_list_card"
-        android:layout_width="100dp"
-        android:layout_height="125dp"
-        android:layout_marginEnd="15dp"
-        app:cardCornerRadius="18dp"
-        app:strokeWidth="1dp"
-        android:layout_marginTop="@dimen/home_margin_lists_top"
-        android:layout_marginBottom="@dimen/home_margin_tasks_title_top">
+        android:layout_width="@dimen/task_list_width"
+        android:layout_height="@dimen/task_list_height"
+        android:layout_marginTop="@dimen/task_list_margin_card_top"
+        android:layout_marginEnd="@dimen/task_list_margin_card_end"
+        android:layout_marginBottom="@dimen/home_margin_tasks_title_top"
+        android:translationZ="@dimen/shadow_translation_z"
+        app:cardCornerRadius="@dimen/task_list_card_corner_radius"
+        app:cardElevation="8dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/root_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@{list.color}"
-            android:paddingVertical="16dp">
+            android:paddingBottom="16dp">
+
+            <ImageView
+                android:id="@+id/image_check_circle"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="9dp"
+                android:layout_marginEnd="9dp"
+                android:padding="0dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_check_circle" />
 
             <TextView
                 android:id="@+id/text_name"
                 style="@style/TaskListItem.Text.ListName"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="9dp"
+                android:layout_marginStart="9dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="3dp"
                 android:text="@{list.name}"
+                app:layout_constraintEnd_toStartOf="@id/image_check_circle"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -41,29 +59,36 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="9dp"
                 android:text='@{String.valueOf(list.tasksCount) + " " + @string/tasks_list_item_tasks_count_title}'
-                app:layout_constraintTop_toBottomOf="@id/text_name" />
+                app:layout_constraintTop_toBottomOf="@id/text_name"  />
 
             <TextView
                 android:id="@+id/text_completed_tasks_percent"
                 style="@style/TaskListItem.Text.TasksCount"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="7dp"
                 android:layout_marginBottom="3dp"
                 android:text='@{list.completedTasksPercent + "%"}'
-                app:layout_constraintBottom_toTopOf="@id/indicator_completed_tasks_percent" />
+                app:layout_constraintBottom_toTopOf="@id/indicator_completed_tasks_percent"
+                app:layout_constraintEnd_toEndOf="@+id/text_tasks_count"
+                app:layout_constraintStart_toStartOf="@+id/text_tasks_count" />
 
             <com.google.android.material.progressindicator.LinearProgressIndicator
                 android:id="@+id/indicator_completed_tasks_percent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="5dp"
-                android:min="@{list.completedTasksPercent}"
                 app:indicatorColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:trackColor="@color/linear_progress_track_color"
                 app:trackCornerRadius="12dp"
                 app:trackThickness="3dp" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier_name_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="text_name" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>

@@ -4,88 +4,130 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="task"
             type="com.app.memorista.models.TaskUI" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        style="@style/TaskItem.Card"
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/shadow_elevation_card"
         android:layout_marginTop="@dimen/task_item_margin_top"
-        android:background="@drawable/background_card_item"
-        android:paddingVertical="12dp"
-        android:paddingStart="@dimen/task_item_padding_start"
-        android:paddingEnd="@dimen/task_item_padding_end">
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/border_radius_card_item"
+        app:cardElevation="@dimen/shadow_elevation_card">
 
-        <!--Task Title-->
-        <TextView
-            android:id="@+id/tv_title"
-            style="@style/TaskItem.Text.Title"
-            android:layout_width="0dp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/task_item_margin_text_horizontal"
-            android:text="@{task.title}"
-            app:layout_constraintBottom_toTopOf="@+id/tv_description"
-            app:layout_constraintStart_toEndOf="@+id/check_box"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="spread" />
+            android:paddingEnd="@dimen/task_item_padding_end">
+            <!--
+                        android:background="@drawable/background_card_item"-->
 
-        <!--Task Description-->
-        <TextView
-            android:id="@+id/tv_description"
-            style="@style/TaskItem.Text.Description"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:layout_marginBottom="3dp"
-            android:text="@{task.description}"
-            android:visibility="gone"
-            app:layout_constraintBottom_toTopOf="@+id/text_time"
-            app:layout_constraintEnd_toEndOf="@+id/tv_title"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@+id/tv_title"
-            app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+            <!--Task Title-->
+            <TextView
+                android:id="@+id/text_title"
+                style="@style/TaskItem.Text.Title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/task_item_margin_text_horizontal"
+                android:layout_marginTop="@dimen/task_item_padding_vertical"
+                android:text="@{task.title}"
+                app:layout_constraintBottom_toTopOf="@+id/tv_description"
+                app:layout_constraintEnd_toStartOf="@id/check_is_saved"
+                app:layout_constraintStart_toEndOf="@+id/check_is_active"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="spread" />
 
-        <!--Task Date-->
-        <TextView
-            android:id="@+id/text_date"
-            style="@style/Text.Icon"
-            timeText="@{task.taskTime}"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            app:drawableStartCompat="@drawable/ic_calendar"
-            app:drawableTint="@color/secondary"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/tv_title"
-            app:layout_constraintTop_toBottomOf="@+id/tv_description" />
+            <!--Task Description-->
+            <TextView
+                android:id="@+id/tv_description"
+                style="@style/TaskItem.Text.Description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:text="@{task.description}"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/text_time"
+                app:layout_constraintEnd_toEndOf="@+id/text_title"
+                app:layout_constraintStart_toStartOf="@+id/text_title"
+                app:layout_constraintTop_toBottomOf="@+id/text_title" />
 
-        <!--Task Time-->
-        <TextView
-            android:id="@+id/text_time"
-            style="@style/Text.Icon"
-            timeText="@{task.taskTime}"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:visibility="gone"
-            app:drawableStartCompat="@drawable/ic_alarm"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/text_date"
-            app:layout_constraintTop_toBottomOf="@+id/tv_description" />
+            <!--Task Date-->
+            <TextView
+                android:id="@+id/text_date"
+                style="@style/Text.Icon"
+                dateText="@{task.taskDate}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/task_item_margin_date_top"
+                android:layout_marginBottom="@dimen/task_item_padding_vertical"
+                android:textColor="@color/accent_2"
+                android:visibility="@{task.taskDate != null ? View.VISIBLE : View.INVISIBLE}"
+                app:drawableStartCompat="@drawable/ic_calendar_13"
+                app:drawableTint="@color/accent_2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/text_title"
+                app:layout_constraintTop_toBottomOf="@+id/tv_description" />
 
-        <CheckBox
-            android:id="@+id/check_box"
-            style="@style/CheckBoxCommon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <!--Task Time-->
+            <TextView
+                android:id="@+id/text_time"
+                style="@style/Text.Icon"
+                timeText="@{task.taskTime}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="@dimen/task_item_margin_date_top"
+                android:layout_marginBottom="@dimen/task_item_padding_vertical"
+                android:textColor="@color/accent_1"
+                android:visibility="@{task.taskTime != null ? View.VISIBLE : View.INVISIBLE}"
+                app:drawableStartCompat="@drawable/ic_alarm_13"
+                app:drawableTint="@color/accent_1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/text_date"
+                app:layout_constraintTop_toBottomOf="@+id/tv_description" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <CheckBox
+                android:id="@+id/check_is_active"
+                style="@style/CheckBoxCommon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/task_item_margin_text_horizontal"
+                android:checked="@{task.active}"
+                android:button="@drawable/selector_task_active"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/list_color"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <CheckBox
+                android:id="@+id/check_is_saved"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/CheckBoxCommon"
+                android:layout_marginTop="@dimen/task_item_margin_saved_checkbox_top"
+                android:background="@android:color/transparent"
+                android:button="@drawable/selector_task_saved"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/list_color"
+                android:layout_width="@dimen/task_item_width_list_color"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
 
 </layout>

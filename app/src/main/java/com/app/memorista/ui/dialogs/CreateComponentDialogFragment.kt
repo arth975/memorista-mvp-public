@@ -24,7 +24,6 @@ class CreateComponentDialogFragment : DialogFragment() {
         if (mBinding == null)
             mBinding = DialogCreateComponentBinding.inflate(layoutInflater).apply {
                 buttonCreateTask.setOnClickListener {
-                    findNavController().navigate(R.id.action_createComponentDialogFragment_to_createTaskFragment2)
                     dismiss()
                 }
                 buttonCreateList.setOnClickListener { createNewList() }

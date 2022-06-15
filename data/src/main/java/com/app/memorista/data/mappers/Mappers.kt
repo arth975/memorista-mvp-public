@@ -3,6 +3,7 @@ package com.app.memorista.data.mappers
 import com.app.memorista.data.local.entities.ListEntity
 import com.app.memorista.data.local.entities.TaskEntity
 import com.app.memorista.data.local.entities.UserEntity
+import com.app.memorista.domain.models.Priority
 import com.app.memorista.domain.models.Task
 import com.app.memorista.domain.models.TaskList
 import com.app.memorista.domain.models.User
@@ -11,7 +12,7 @@ fun ListEntity.toDomain() = TaskList(
     id = id,
     name = name,
     tasksCount = tasksCount,
-    completedTaskPercent = completedTasksPercent,
+    completedTaskCount = completedTasksPercent,
     color = color
 )
 
@@ -19,30 +20,34 @@ fun TaskList.toEntity() = ListEntity(
     id = id,
     name = name,
     tasksCount = tasksCount,
-    completedTasksPercent = completedTaskPercent,
+    completedTasksPercent = completedTaskCount,
     color = color
 )
 
 fun TaskEntity.toDomain() = Task(
+    id = id,
+    listId = listId,
+    listColor = listColor,
     title = title,
     note = description,
     taskDate = taskDate,
     taskTime = taskTime,
-    listId = listId,
     alarmTime = alarmTime,
     isActive = isActive,
-    id = id
+    priority = if(priorityCode != null) Priority.values()[priorityCode!!] else null
 )
 
 fun Task.toEntity() = TaskEntity(
+    id = id,
+    listId = listId,
+    listColor = listColor,
     title = title,
     description = note,
-    listId = listId,
     taskDate = taskDate,
     taskTime = taskTime,
     alarmTime = alarmTime,
-    isActive = isActive,
-    id = id
+    priorityCode = priority?.ordinal,
+    isActive = isActive
 )
 
 fun UserEntity.toDomain() = User(

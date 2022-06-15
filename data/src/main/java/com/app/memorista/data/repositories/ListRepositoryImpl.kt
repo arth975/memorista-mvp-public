@@ -18,7 +18,7 @@ class ListRepositoryImpl(
         localDataSource.fetchAllCategories().map { list -> list.map { it.toDomain() } }
 
     override suspend fun getById(id: Long): TaskList {
-        return TaskList(0, "", 0, 0, 0)
+        return localDataSource.fetchById(id).toDomain()
     }
 
     override suspend fun getListWithTasksFlow(params: TaskParams): Flow<ListWithTasks> {
