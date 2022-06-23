@@ -6,9 +6,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.app.memorista.databinding.ItemTaskBinding
+import com.app.memorista.databinding.ItemTaskCardBinding
 import com.app.memorista.models.TaskUI
-import com.app.memorista.utils.GradientContent
+import com.app.memorista.utils.OnCheckedChange
+import com.app.memorista.utils.OnTaskItemClick
+import com.app.memorista.utils.OnTaskItemLongClick
 
 /**
  * @ClassName: TaskAdapter
@@ -16,12 +18,16 @@ import com.app.memorista.utils.GradientContent
  * @Author: Arthur Galoyan
  * @Date: 3/10/2022 11:27 PM
  */
+
 class TaskAdapter(
-    private val onCheckedChangeListener: OnCheckedChangeListener? = null
+    private val onStatusChecked: OnCheckedChange? = null,
+    private val onFavoriteStatusChecked: OnCheckedChange? = null,
+    private val onItemClick: OnTaskItemClick? = null,
+    private val onLongClick: OnTaskItemLongClick? = null
 ) : ListAdapter<TaskUI, TaskAdapter.TaskItemViewHolder>(TaskItemCallback()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskItemViewHolder {
         return TaskItemViewHolder(
-            ItemTaskBinding.inflate(
+            ItemTaskCardBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent, false
             )
@@ -33,19 +39,28 @@ class TaskAdapter(
     }
 
     @SuppressLint("SetTextI18n")
-    inner class TaskItemViewHolder(private val binding: ItemTaskBinding) :
+    inner class TaskItemViewHolder(private val binding: ItemTaskCardBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(taskItem: TaskUI) {
             with(binding) {
                 task = taskItem
-                listColor.background = GradientContent.createGradient(taskItem.listColor)
+                root.setOnClickListener { onItemClick?.invoke(taskItem) }
+                root.setOnLongClickListener {
+                    onLongClick?.invoke(root, taskItem)
+                    true
+                }
                 checkIsActive.setOnCheckedChangeListener { _, isChecked ->
                     if (isChecked != taskItem.isActive)
-                        onCheckedChangeListener?.onCheckedChange(taskItem, isChecked)
+                        onStatusChecked?.invoke(taskItem, isChecked)
                 }
+                imageListColor.setColorFilter(taskItem.listColor)
+                /*checkIsFavorite.setOnCheckedChangeListener { _, isChecked ->
+                        if (isChecked != taskItem.isFavorite)
+                            onFavoriteStatusChecked?.invoke(taskItem, isChecked)
+                    }*/
 
                 if (taskItem.priority != null)
-                    textTitle.text = taskItem.priority.symbol + textTitle.text
+                    textNote.text = taskItem.priority.symbol + textNote.text
             }
         }
     }
@@ -56,9 +71,5 @@ class TaskAdapter(
 
         override fun areContentsTheSame(oldItem: TaskUI, newItem: TaskUI): Boolean =
             oldItem == newItem
-    }
-
-    interface OnCheckedChangeListener {
-        fun onCheckedChange(item: TaskUI, isChecked: Boolean)
     }
 }

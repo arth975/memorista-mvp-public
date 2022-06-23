@@ -53,5 +53,5 @@
         app:elevation="0dp"
         app:headerLayout="@layout/layout_nav_header"
         app:itemBackground="@drawable/state_nav_item_background"
-        app:menu="@menu/menu_bottom_navigation" />
+        app:menu="@menu/menu_navigation" />
 </androidx.drawerlayout.widget.DrawerLayout>

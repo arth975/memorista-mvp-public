@@ -23,5 +23,6 @@ data class TaskEntity(
     var taskTime: LocalTime? = null,
     var alarmTime: LocalTime? = null,
     var isActive: Boolean = false,
+    val isFavorite: Boolean = false,
     var priorityCode: Int? = null
 )

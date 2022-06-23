@@ -6,18 +6,18 @@ import org.koin.dsl.module
 
 val viewModelsModule = module {
     viewModel {
-        HomeViewModel(
+        TodayTasksViewModel(
             getAllLists = get(),
-            getTasksByDate = get(),
-            changeTaskActivity = get()
+            getTodayTasks = get(),
+            filterTasksByStatus = get()
         )
     }
     viewModel {
-        CreateTaskViewModel(
-            getAllLists = get(),
-            validateTaskInput = get(),
+        SingleTaskViewModel(
             createTask = get(),
-            changeTaskActivity = get()
+            updateTask = get(),
+            getAllLists = get(),
+            validateTaskInput = get()
         )
     }
 
@@ -28,13 +28,55 @@ val viewModelsModule = module {
         )
     }
 
-    viewModel { SharedViewModel() }
+    viewModel {
+        SharedViewModel(
+            updateTaskStatus = get(),
+            updateTaskFavoriteStatus = get()
+        )
+    }
+
     viewModel {
         SingleListViewModel(
             getListWithTasks = get(),
             createList = get(),
             updateList = get(),
             deleteList = get()
+        )
+    }
+
+    viewModel {
+        UpcomingTasksViewModel(
+            getUpcomingTasks = get(),
+            getAllLists = get()
+        )
+    }
+
+    viewModel {
+        ThisWeekTasksViewModel(
+            getAllLists = get(),
+            getThisWeekTasks = get(),
+            filterTasksByStatus = get()
+        )
+    }
+
+    viewModel {
+        AllTasksViewModel(
+            getAllTasks = get(),
+            getAllLists = get()
+        )
+    }
+
+    viewModel {
+        FavoriteTasksViewModel(
+            getFavoriteTasks = get(),
+            updateTaskStatus = get(),
+            updateTaskFavoriteStatus = get()
+        )
+    }
+
+    viewModel {
+        TaskListViewModel(
+            deleteTaskUseCase = get()
         )
     }
 }

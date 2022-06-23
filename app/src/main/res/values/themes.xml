@@ -18,10 +18,10 @@
         <item name="android:colorBackground">@color/primary_background</item>
 
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-        <item name="android:navigationBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">?attr/colorPrimary</item>
+        <item name="android:navigationBarColor">@color/primary_background</item>
         <item name="android:windowLightStatusBar">false</item>
-        <item name="android:windowLightNavigationBar">false</item>
+        <item name="android:windowLightNavigationBar">true</item>
 
         <!-- Customize your theme here. -->
         <item name="android:textViewStyle">@style/GeneralTextView</item>
@@ -36,6 +36,12 @@
         <item name="android:spotShadowAlpha">1</item>
         <item name="android:outlineSpotShadowColor">@color/shadow_ambient</item>
 
+        <!--Popup menu customization-->
+        <item name="listPreferredItemHeightSmall">24dp</item>
+        <item name="android:listPreferredItemHeightSmall">24dp</item>
+        <item name="android:popupMenuStyle">@style/CustomPopupMenu</item>
+        <item name="popupMenuStyle">@style/CustomPopupMenu</item>
+        <item name="android:itemTextAppearance">@style/CustomPopupMenuTextAppearance</item>
     </style>
 
     <style name="GeneralTextView" parent="android:Widget.TextView">
@@ -60,4 +66,15 @@
         <item name="fullscreenTextColor">@color/light_blue_A200</item>
     </style>
 
+    <!--Popup menu Customization-->
+    <style name="CustomPopupMenu" parent="@style/Widget.AppCompat.PopupMenu.Overflow">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/font_secondary_1</item>
+        <item name="android:popupBackground">@android:color/white</item>
+    </style>
+
+    <style name="CustomPopupMenuTextAppearance" parent="@android:style/TextAppearance.Widget.IconMenu.Item">
+        <item name="android:textColor">#545656</item>
+        <item name="android:textSize">12sp</item>
+    </style>
 </resources>

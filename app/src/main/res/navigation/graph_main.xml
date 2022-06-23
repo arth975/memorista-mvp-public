@@ -7,9 +7,8 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.app.memorista.ui.fragments.HomeFragment"
-        android:label="@string/screen_title_tasks"
-        tools:layout="@layout/fragment_home"/>
+        android:name="com.app.memorista.ui.fragments.TodayTasksFragment"
+        android:label="@string/nav_title_today_tasks" />
     <fragment
         android:id="@+id/introFragment"
         android:name="com.app.memorista.ui.fragments.IntroFragment"
@@ -18,32 +17,32 @@
     <fragment
         android:id="@+id/calendarFragment"
         android:name="com.app.memorista.ui.fragments.CalendarFragment"
-        android:label="@string/screen_title_calendar"
+        android:label="@string/nav_title_calendar"
         tools:layout="@layout/fragment_calendar" />
     <fragment
         android:id="@+id/notificationsFragment"
         android:name="com.app.memorista.ui.fragments.NotificationsFragment"
-        android:label="@string/screen_title_notifications"
+        android:label="@string/nav_title_notifications"
         tools:layout="@layout/fragment_notifications" />
     <fragment
-        android:id="@+id/savedTasksFragment"
-        android:name="com.app.memorista.ui.fragments.SavedTasksFragment"
-        android:label="@string/screen_title_saved"
+        android:id="@+id/favoritesTasksFragment"
+        android:name="com.app.memorista.ui.fragments.FavoriteTasksFragment"
+        android:label="@string/nav_title_favorites"
         tools:layout="@layout/fragment_saved_tasks" />
     <fragment
         android:id="@+id/allTasksFragment"
         android:name="com.app.memorista.ui.fragments.AllTasksFragment"
-        android:label="AllTasksFragment" />
+        android:label="@string/nav_title_all_tasks" />
     <fragment
         android:id="@+id/categoriesFragment"
         android:name="com.app.memorista.ui.fragments.CategoriesFragment"
-        android:label="CategoriesFragment" />
+        android:label="@string/nav_title_categories" />
     <fragment
         android:id="@+id/thisWeekTasksFragment"
         android:name="com.app.memorista.ui.fragments.ThisWeekTasksFragment"
-        android:label="ThisWeekTasksFragment" />
+        android:label="@string/nav_title_this_week_tasks" />
     <fragment
-        android:id="@+id/tomorrowTasksFragment"
-        android:name="com.app.memorista.ui.fragments.TomorrowTasksFragment"
-        android:label="TomorrowTasksFragment" />
+        android:id="@+id/upcomingTasksFragment"
+        android:name="com.app.memorista.ui.fragments.UpcomingTasksFragment"
+        android:label="@string/nav_title_upcoming_tasks" />
 </navigation>

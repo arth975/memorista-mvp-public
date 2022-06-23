@@ -17,7 +17,7 @@ import com.app.memorista.utils.GradientContent
 class TasksListAdapter(
     private val onItemClickListener: OnItemClickListener? = null,
     private val onItemSelectedListener: OnItemSelectedListener? = null,
-    private val onNewItemClick: OnNewItemClickListener? = null
+    private val onNewItemClick: OnCreateNewItemClickListener? = null
 ) : ListAdapter<TaskListUI, TasksListAdapter.ItemViewHolder>(ItemCallback()) {
 
     init {
@@ -102,7 +102,7 @@ class TasksListAdapter(
     inner class CreateListViewHolder(private val binding: ItemTaskListNewBinding) :
         ItemViewHolder(binding.root) {
         override fun bind() {
-            binding.root.setOnClickListener { onNewItemClick?.onItemClick() }
+            binding.root.setOnClickListener { onNewItemClick?.onCreateNewItemClick() }
         }
     }
 
@@ -122,7 +122,7 @@ class TasksListAdapter(
         fun onItemSelected(item: TaskListUI)
     }
 
-    interface OnNewItemClickListener {
-        fun onItemClick()
+    interface OnCreateNewItemClickListener {
+        fun onCreateNewItemClick()
     }
 }

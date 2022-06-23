@@ -10,10 +10,10 @@
             android:icon="@drawable/ic_calendar_today"
             android:title="@string/nav_title_today_tasks" />
         <item
-            android:id="@+id/tomorrowTasksFragment"
+            android:id="@+id/upcomingTasksFragment"
             android:enabled="true"
             android:icon="@drawable/ic_calendar_tomorrow"
-            android:title="@string/nav_title_tomorrow_tasks" />
+            android:title="@string/nav_title_upcoming_tasks" />
         <item
             android:id="@+id/thisWeekTasksFragment"
             android:enabled="true"
@@ -36,7 +36,7 @@
             android:icon="@drawable/ic_calendar_checked"
             android:title="@string/nav_title_calendar" />
         <item
-            android:id="@+id/savedTasksFragment"
+            android:id="@+id/favoritesTasksFragment"
             android:enabled="true"
             android:icon="@drawable/ic_bookmark_filled"
             android:title="@string/nav_title_favorites" />

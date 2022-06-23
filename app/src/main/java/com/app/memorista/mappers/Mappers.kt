@@ -31,20 +31,22 @@ fun Task.toUI() = TaskUI(
     taskTime = taskTime,
     taskDate = taskDate,
     isActive = isActive,
+    isFavorite = isFavorite,
     alarmTime = LocalTime.now(),
-    priority = if(priority != null) PriorityUI.values()[priority!!.ordinal] else null
+    priority = priority?.toUI()
 )
 
 fun TaskUI.toDomain() = Task(
+    id = id,
     title = title,
     note = description,
     taskDate = taskDate,
     listId = listId,
     listColor = listColor,
     isActive = isActive,
+    isFavorite = isFavorite,
     alarmTime = alarmTime,
-    priority = if(priority != null) Priority.values()[priority.ordinal] else null,
-    id = id
+    priority = priority?.toDomain()
 )
 
 fun UserUI.toDomain() = User(
@@ -57,3 +59,6 @@ fun ListWithTasks.toUI() = ListWithTasksUI(
     list = list.toUI(),
     tasks = tasks.map { it.toUI() }
 )
+
+fun PriorityUI.toDomain() = Priority.values()[this.ordinal]
+fun Priority.toUI() = PriorityUI.values()[this.ordinal]

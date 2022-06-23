@@ -1,4 +1,4 @@
-package com.app.memorista.ui.dialogs
+package com.app.memorista.ui.bottom_sheets
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import com.app.memorista.databinding.DialogSortBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class SortBottomSheetDialog : BottomSheetDialogFragment() {
+class SortBottomSheet : BottomSheetDialogFragment() {
 
     private var mBinding: DialogSortBinding? = null
 

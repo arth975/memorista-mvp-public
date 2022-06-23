@@ -14,8 +14,17 @@ import java.time.LocalDate
 @Dao
 interface TaskDao {
 
-    @Query("SELECT * FROM tasks WHERE taskDate = :date")
-    fun getTasksFlowByDate(date: LocalDate): Flow<List<TaskEntity>>
+    @Query("SELECT * FROM tasks")
+    fun getAllTasks(): Flow<List<TaskEntity>>
+
+    @Query("SELECT * FROM tasks WHERE taskDate >= :from AND taskDate <= :to ")
+    fun getTasksFlowByDate(from: LocalDate, to: LocalDate): Flow<List<TaskEntity>>
+
+    @Query("SELECT * FROM tasks WHERE isFavorite = 1")
+    fun getFavoriteTasks(): Flow<List<TaskEntity>>
+
+    @Query("SELECT * FROM tasks WHERE id = :id")
+    suspend fun getById(id: Long): TaskEntity
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertTask(task: TaskEntity)

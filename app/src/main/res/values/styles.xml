@@ -51,7 +51,7 @@
     </style>
 
     <style name="Card" parent="Widget.MaterialComponents.CardView">
-        <item name="cardBackgroundColor">@color/bg_main</item>
+        <item name="cardBackgroundColor">@color/primary_background</item>
     </style>
 
     <style name="Spinner" />
@@ -349,7 +349,6 @@
     <style name="Home.Text.TasksTitle" parent="Text">
         <item name="android:textColor">@color/font_primary</item>
         <item name="android:textSize">@dimen/home_font_size_tasks_title</item>
-        <item name="android:letterSpacing">0.02</item>
         <item name="fontFamily">@font/open_sans_semibold</item>
     </style>
 

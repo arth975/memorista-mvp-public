@@ -16,7 +16,7 @@
     <dimen name="shadow_elevation_button">5dp</dimen>
     <dimen name="shadow_translation_z">1dp</dimen>
 
-    <dimen name="border_radius_card_item">16dp</dimen>
+    <dimen name="border_radius_card_item">7dp</dimen>
     <dimen name="border_radius_image_button">8dp</dimen>
     <dimen name="border_radius_button_common">12dp</dimen>
     <dimen name="border_radius_create_category_dialog">12dp</dimen>
@@ -31,11 +31,10 @@
     <dimen name="task_item_size_edit_button">22dp</dimen>
     <dimen name="task_item_margin_top">15dp</dimen>
     <dimen name="task_item_margin_time_top">6sp</dimen>
-    <dimen name="task_item_margin_text_horizontal">10dp</dimen>
+    <dimen name="task_item_margin_text_horizontal">12dp</dimen>
     <dimen name="task_item_gl_top">0.24</dimen>
     <dimen name="task_item_gl_bottom">0.76</dimen>
     <dimen name="task_item_font_size_date_time">11sp</dimen>
-    <dimen name="task_item_width_list_color">15dp</dimen>
 
     <dimen name="item_spinner_categories_font_size">16sp</dimen>
     <dimen name="item_spinner_categories_padding_vertical">7dp</dimen>
@@ -94,7 +93,7 @@
     <dimen name="intro_height_name">50dp</dimen>
 
     <dimen name="task_list_margin_card_top">15dp</dimen>
-    <dimen name="home_margin_today_tasks_top">26dp</dimen>
+    <dimen name="home_margin_today_tasks_top">22dp</dimen>
     <dimen name="home_margin_tasks_title_top">29dp</dimen>
     <dimen name="home_font_size_tasks_title">18sp</dimen>
     <dimen name="home_font_size_sort_button">14sp</dimen>
@@ -121,8 +120,11 @@
     <dimen name="task_item_width_saved_checkbox">18dp</dimen>
     <dimen name="task_item_height_saved_checkbox">24dp</dimen>
     <dimen name="task_item_margin_saved_checkbox_top">7dp</dimen>
-    <dimen name="task_item_margin_date_top">7dp</dimen>
+    <dimen name="task_item_margin_date_top">9dp</dimen>
     <dimen name="nav_drawer_border_radius">18dp</dimen>
+    <dimen name="task_item_margin_text_start">16dp</dimen>
+    <dimen name="tasks_list_margin_divider_top">7dp</dimen>
+    <dimen name="tasks_list_margin_completed_title_top">23dp</dimen>
 
     <item name="task_list_guide_percent_start" format="float" type="dimen">0.06</item>
     <item name="task_list_guide_percent_end" format="float" type="dimen">0.96</item>

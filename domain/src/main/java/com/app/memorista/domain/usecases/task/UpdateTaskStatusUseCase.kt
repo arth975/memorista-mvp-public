@@ -4,7 +4,7 @@ import com.app.memorista.domain.models.Task
 import com.app.memorista.domain.repositories.TaskRepository
 import com.app.memorista.domain.usecases.list.UpdateCompletedTaskCountUseCase
 
-class ChangeTaskActivityStateUseCase(
+class UpdateTaskStatusUseCase(
     private val taskRepository: TaskRepository,
     private val updateCompletedTaskCount: UpdateCompletedTaskCountUseCase
 ) {

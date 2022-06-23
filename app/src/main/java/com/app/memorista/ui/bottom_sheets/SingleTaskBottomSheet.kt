@@ -1,16 +1,15 @@
-package com.app.memorista.ui.dialogs
+package com.app.memorista.ui.bottom_sheets
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.app.Dialog
 import android.app.TimePickerDialog
 import android.content.res.ColorStateList
-import android.os.Build
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.*
 import android.widget.*
-import androidx.core.view.updatePadding
 import androidx.lifecycle.Lifecycle
 import androidx.recyclerview.selection.SelectionPredicates
 import androidx.recyclerview.selection.SelectionTracker
@@ -23,10 +22,12 @@ import com.app.memorista.models.TaskListUI
 import com.app.memorista.ui.adapters.TaskListItemDetailsLookup
 import com.app.memorista.ui.adapters.TaskListItemKeyProvider
 import com.app.memorista.ui.adapters.TasksListAdapter
-import com.app.memorista.ui.viewmodels.CreateTaskViewModel
+import com.app.memorista.ui.viewmodels.SharedViewModel
+import com.app.memorista.ui.viewmodels.SingleTaskViewModel
 import com.app.memorista.utils.DateTimeUtils
 import com.app.memorista.utils.addRepeatedJob
 import com.app.memorista.utils.models.Resource
+import com.app.memorista.utils.models.TaskDetails
 import com.app.memorista.utils.models.TaskDetailsEvent
 import com.app.memorista.utils.showSoftKeyboard
 import com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_EXPANDED
@@ -34,6 +35,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.time.LocalDate
 import java.time.LocalTime
@@ -44,17 +46,23 @@ import java.time.LocalTime
  * @Author: Arthur Galoyan
  * @Date: 3/9/2022 11:14 PM
  */
-class CreateTaskBottomSheetDialog : BottomSheetDialogFragment(), TimePickerDialog.OnTimeSetListener,
+class SingleTaskBottomSheet : BottomSheetDialogFragment(), TimePickerDialog.OnTimeSetListener,
     DatePickerDialog.OnDateSetListener, CompoundButton.OnCheckedChangeListener,
     TasksListAdapter.OnItemSelectedListener, PopupMenu.OnMenuItemClickListener {
 
+    companion object {
+        const val TAG = "SingleTaskBottomSheet"
+    }
+
     private var mBinding: FragmentCreateTaskBinding? = null
-    private val mViewModel by viewModel<CreateTaskViewModel>()
+    private val mViewModel by viewModel<SingleTaskViewModel>()
+    private val mSharedViewModel by sharedViewModel<SharedViewModel>()
 
     private lateinit var mCategoriesFailedMessage: String
     private lateinit var mPrioritySymbol: String
     private var tracker: SelectionTracker<Long>? = null
 
+    private val mSelectedTask by lazy { mSharedViewModel.selectedTask }
     private val mTaskListAdapter by lazy { TasksListAdapter(onItemSelectedListener = this) }
 
     override fun onCreateView(
@@ -94,8 +102,14 @@ class CreateTaskBottomSheetDialog : BottomSheetDialogFragment(), TimePickerDialo
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        handleFlows()
         setupUI()
+        handleFlows()
+        mViewModel.initState(mSelectedTask)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mSharedViewModel.selectedTask = null
     }
 
     private fun setupUI() {
@@ -103,7 +117,7 @@ class CreateTaskBottomSheetDialog : BottomSheetDialogFragment(), TimePickerDialo
             rvLists.adapter = mTaskListAdapter
             rvLists.layoutManager =
                 LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-            checkIsActive.setOnCheckedChangeListener(this@CreateTaskBottomSheetDialog)
+            checkIsActive.setOnCheckedChangeListener(this@SingleTaskBottomSheet)
             buttonDate.setOnClickListener { showDatePickerDialog() }
             buttonTime.setOnClickListener { showTimePickerDialog() }
             buttonTime.setOnLongClickListener { clearAlarmTime() }
@@ -121,9 +135,12 @@ class CreateTaskBottomSheetDialog : BottomSheetDialogFragment(), TimePickerDialo
                 TaskListItemKeyProvider(mTaskListAdapter),
                 TaskListItemDetailsLookup(it),
                 StorageStrategy.createLongStorage()
-            ).withSelectionPredicate(
-                SelectionPredicates.createSelectSingleAnything()
-            ).build()
+            ).withSelectionPredicate(SelectionPredicates.createSelectSingleAnything())
+                .build()
+
+            mSelectedTask?.let { task ->
+                tracker?.select(task.listId)
+            }
 
             mTaskListAdapter.tracker = tracker
         }
@@ -163,39 +180,17 @@ class CreateTaskBottomSheetDialog : BottomSheetDialogFragment(), TimePickerDialo
     private suspend fun handleEventsFlow() {
         mViewModel.taskDetailsFlow.collect { details ->
             when (details.event) {
-                TaskDetailsEvent.DateChanged -> {
-                    if (details.date != null) {
-                        mBinding?.buttonDate?.visibility = View.VISIBLE
-                        mBinding?.buttonDate?.text =
-                            DateTimeUtils.formatDate(requireContext(), details.date)
-                    } else {
-                        mBinding?.buttonDate?.visibility = View.GONE
-                        mBinding?.buttonDate?.text = null
-                    }
-                }
-                TaskDetailsEvent.TimeChanged -> {
-                    if (details.time != null) {
-                        mBinding?.buttonTime?.visibility = View.VISIBLE
-                        mBinding?.buttonTime?.text = DateTimeUtils.formatTime(details.time)
-                    } else {
-                        mBinding?.buttonTime?.visibility = View.GONE
-                        mBinding?.buttonTime?.text = null
-                    }
-                }
-                TaskDetailsEvent.ListChanged -> {
-                    details.list?.let {
-                        mBinding?.circleSelectedList
-                            ?.backgroundTintList = ColorStateList.valueOf(it.color)
-                    }
-                }
-                TaskDetailsEvent.Initial -> {
-                    mBinding?.buttonTime?.visibility = View.GONE
-                    mBinding?.buttonDate?.text =
-                        DateTimeUtils.formatDate(requireContext(), LocalDate.now())
-                }
-                TaskDetailsEvent.ActivityChanged -> {}
+                TaskDetailsEvent.DateChanged ->
+                    changeDate(details.date)
+                TaskDetailsEvent.TimeChanged ->
+                    changeTime(details.time)
+                TaskDetailsEvent.Initial ->
+                    initState(details)
+                TaskDetailsEvent.ListChanged ->
+                    changeSelectedListCircleColor(details.list?.color)
                 TaskDetailsEvent.PriorityChanged ->
                     changePriorityInEditText(details.priority)
+                TaskDetailsEvent.ActivityChanged -> {}
             }
         }
     }
@@ -208,6 +203,43 @@ class CreateTaskBottomSheetDialog : BottomSheetDialogFragment(), TimePickerDialo
                 Toast.makeText(requireContext(), "Invalid input data.", Toast.LENGTH_LONG)
                     .show()
         }
+    }
+
+    private fun initState(details: TaskDetails) = mBinding?.let {
+        it.editTextNote.setText(details.titleText ?: "")
+        it.checkIsActive.isChecked = details.isActive
+        it.circleSelectedList.backgroundTintList =
+            ColorStateList.valueOf(details.list?.color ?: Color.TRANSPARENT)
+
+        changeDate(details.date)
+        changeTime(details.time)
+        changePriorityInEditText(details.priority)
+        changeSelectedListCircleColor(details.list?.color)
+    }
+
+    private fun changeTime(time: LocalTime?) = mBinding?.buttonTime?.let {
+        if (time != null) {
+            it.visibility = View.VISIBLE
+            it.text = DateTimeUtils.formatTime(time)
+        } else {
+            it.visibility = View.GONE
+            it.text = null
+        }
+    }
+
+    private fun changeDate(date: LocalDate?) = mBinding?.buttonDate?.let {
+        if (date != null) {
+            it.visibility = View.VISIBLE
+            it.text = DateTimeUtils.formatDate(requireContext(), date)
+        } else {
+            it.visibility = View.GONE
+            it.text = null
+        }
+    }
+
+    private fun changeSelectedListCircleColor(color: Int?) {
+        mBinding?.circleSelectedList?.backgroundTintList =
+            ColorStateList.valueOf(color ?: Color.TRANSPARENT)
     }
 
     private fun showDatePickerDialog() {
@@ -249,14 +281,14 @@ class CreateTaskBottomSheetDialog : BottomSheetDialogFragment(), TimePickerDialo
     private var clearedEdit = ""
 
     @SuppressLint("SetTextI18n")
-    private fun changePriorityInEditText(priority: PriorityUI?) {
-        mBinding?.editTextNote?.let {
-            clearedEdit = it.text.toString().replace(mPrioritySymbol, "", true)
-            prioritySymbol = priority?.symbol ?: ""
-            it.setText(prioritySymbol + clearedEdit)
-            it.setSelection(it.text.length)
-        }
+    private fun changePriorityInEditText(priority: PriorityUI?) = mBinding?.editTextNote?.let {
+        Log.d("PRIORITY", priority?.symbol ?: "null")
+        clearedEdit = it.text.toString().replace(mPrioritySymbol, "", true)
+        prioritySymbol = priority?.symbol ?: ""
+        it.setText(prioritySymbol + clearedEdit)
+        it.setSelection(it.text.length)
     }
+
 
     override fun onTimeSet(view: TimePicker?, hourOfDay: Int, minute: Int) {
         mViewModel.changeTime(LocalTime.of(hourOfDay, minute))
@@ -279,5 +311,4 @@ class CreateTaskBottomSheetDialog : BottomSheetDialogFragment(), TimePickerDialo
         mViewModel.changePriority(priority)
         return true
     }
-
 }

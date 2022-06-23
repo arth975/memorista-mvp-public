@@ -34,7 +34,8 @@ fun TaskEntity.toDomain() = Task(
     taskTime = taskTime,
     alarmTime = alarmTime,
     isActive = isActive,
-    priority = if(priorityCode != null) Priority.values()[priorityCode!!] else null
+    isFavorite = isFavorite,
+    priority = if (priorityCode != null) Priority.values()[priorityCode!!] else null
 )
 
 fun Task.toEntity() = TaskEntity(
@@ -47,7 +48,8 @@ fun Task.toEntity() = TaskEntity(
     taskTime = taskTime,
     alarmTime = alarmTime,
     priorityCode = priority?.ordinal,
-    isActive = isActive
+    isActive = isActive,
+    isFavorite = isFavorite,
 )
 
 fun UserEntity.toDomain() = User(

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/taskPopupAddToFavorites"
+        android:title="@string/task_car_popup_menu_title_favorite" />
+    <item
+        android:id="@+id/taskPopupPriority"
+        android:title="@string/task_car_popup_menu_title_priority"
+        />
+    <item
+        android:id="@+id/taskPopupCategory"
+        android:title="@string/task_car_popup_menu_title_category"/>
+    <item
+        android:id="@+id/taskPopupEdit"
+        android:title="@string/task_car_popup_menu_title_" />
+    <item
+        android:id="@+id/taskPopupDelete"
+        android:title="@string/task_car_popup_menu_title_delete" />
+</menu>

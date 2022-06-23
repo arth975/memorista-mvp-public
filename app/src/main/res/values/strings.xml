@@ -2,12 +2,6 @@
     <string name="app_name">Memorista</string>
     <string name="content_description">Image</string>
 
-    <string name="screen_title_tasks">Tasks</string>
-    <string name="screen_title_new_task">New Task</string>
-    <string name="screen_title_calendar">Calendar</string>
-    <string name="screen_title_saved">Saved</string>
-    <string name="screen_title_notifications">Notifications</string>
-
     <string name="categories_failed_message">Failed to load categories</string>
 
     <string name="task_status_tab_all">All</string>
@@ -76,13 +70,26 @@
     <string name="priority_symbol_high">❗❗❗</string>
     <string name="priority_symbol_extra">❗❗❗❗</string>
     <string name="title_search">Search</string>
+
     <string name="nav_title_today_tasks">Today</string>
-    <string name="nav_title_tomorrow_tasks">Tomorrow</string>
+    <string name="nav_title_upcoming_tasks">Upcoming</string>
     <string name="nav_title_this_week_tasks">This week</string>
     <string name="nav_title_all_tasks">All</string>
     <string name="nav_title_calendar">Calendar</string>
     <string name="nav_title_favorites">Favorites</string>
     <string name="nav_title_notifications">Notifications</string>
     <string name="nav_title_categories">Categories</string>
+
+    <string name="tasks_list_completed_tasks_title">Completed</string>
+
+    <string name="task_car_popup_menu_title_favorite">Add to Favorites</string>
+    <string name="task_car_popup_menu_title_priority">Priority</string>
+    <string name="task_car_popup_menu_title_category">Change category</string>
+    <string name="task_car_popup_menu_title_">Edit</string>
+    <string name="task_car_popup_menu_title_delete">Delete</string>
+
+    <string name="dialog_message_delete_task">Are you sure you want to delete the task?</string>
+    <string name="dialog_button_negative">No</string>
+    <string name="dialog_button_positive">Yes</string>
 
 </resources>

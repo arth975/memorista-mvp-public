@@ -1,28 +1,13 @@
 package com.app.memorista.di.modules
 
-import com.app.memorista.data.repositories.ListRepositoryImpl
-import com.app.memorista.data.repositories.TaskRepositoryImpl
-import com.app.memorista.data.repositories.UserRepositoryImpl
-import com.app.memorista.domain.repositories.ListRepository
-import com.app.memorista.domain.repositories.TaskRepository
-import com.app.memorista.domain.repositories.UserRepository
 import com.app.memorista.domain.usecases.list.*
-import com.app.memorista.domain.usecases.task.ChangeTaskActivityStateUseCase
-import com.app.memorista.domain.usecases.task.CreateTaskUseCase
-import com.app.memorista.domain.usecases.task.GetTasksByDateUseCase
-import com.app.memorista.domain.usecases.task.ValidateTaskInputUseCase
+import com.app.memorista.domain.usecases.task.*
 import com.app.memorista.domain.usecases.user.CreateUserUseCase
 import com.app.memorista.domain.usecases.user.GetUserUseCase
 import com.app.memorista.domain.usecases.user.ValidateUserNameUseCase
-import org.koin.dsl.bind
 import org.koin.dsl.module
 
 val domainModule = module {
-    //Repository implementations
-    single { ListRepositoryImpl(localDataSource = get()) } bind ListRepository::class
-    single { TaskRepositoryImpl(localDataSource = get()) } bind TaskRepository::class
-    single { UserRepositoryImpl(dataSource = get()) } bind UserRepository::class
-
     //List's use cases
     single { GetAllListsUseCase(listRepository = get()) }
     single { CreateListUseCase(listRepository = get()) }
@@ -34,9 +19,29 @@ val domainModule = module {
 
     //Task's use cases
     single { ValidateTaskInputUseCase() }
-    single { CreateTaskUseCase(taskRepository = get(), updateListTaskCount = get(), updateCompletedTaskCount = get()) }
-    single { GetTasksByDateUseCase(taskRepository = get()) }
-    single { ChangeTaskActivityStateUseCase(taskRepository = get(), updateCompletedTaskCount = get()) }
+    single {
+        CreateTaskUseCase(
+            taskRepository = get(),
+            updateListTaskCount = get(),
+            updateCompletedTaskCount = get()
+        )
+    }
+    single {
+        UpdateTaskUseCase(
+            taskRepository = get(),
+            updateListTaskCount = get(),
+            updateCompletedTaskCount = get()
+        )
+    }
+    single { DeleteTaskUseCase(taskRepository = get()) }
+    single { GetTodayTasksUseCase(taskRepository = get()) }
+    single { GetFavoriteTasksUseCase(taskRepository = get()) }
+    single { GetUpcomingTasksUseCase(taskRepository = get()) }
+    single { GetThisWeekTasksUseCase(taskRepository = get()) }
+    single { GetAllTasksUseCase(taskRepository = get()) }
+    single { FilterTasksByStatusUseCase() }
+    single { UpdateTaskStatusUseCase(taskRepository = get(), updateCompletedTaskCount = get()) }
+    single { UpdateTaskFavoriteStatusUseCase(taskRepository = get()) }
 
     //User's use cases
     single { CreateUserUseCase(repo = get()) }

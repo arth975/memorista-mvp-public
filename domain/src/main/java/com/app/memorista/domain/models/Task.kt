@@ -14,5 +14,6 @@ data class Task(
     val taskTime: LocalTime? = null,
     val alarmTime: LocalTime? = null,
     val priority: Priority? = null,
-    val isActive: Boolean = false
+    val isActive: Boolean = false,
+    val isFavorite: Boolean = false
 )

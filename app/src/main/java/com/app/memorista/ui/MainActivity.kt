@@ -8,7 +8,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.app.memorista.R
 import com.app.memorista.databinding.ActivityMainBinding
-import com.app.memorista.ui.dialogs.CreateTaskBottomSheetDialog
+import com.app.memorista.ui.bottom_sheets.SingleTaskBottomSheet
 import com.app.memorista.utils.changeCornerRadius
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
@@ -16,23 +16,23 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         var fab: FloatingActionButton? = null
-        var binding: ActivityMainBinding? = null
     }
 
+    private lateinit var mBinding: ActivityMainBinding
     private lateinit var mNavController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding?.root)
+        mBinding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(mBinding.root)
 
-        binding?.fabAddNewTask
-            ?.setOnClickListener { CreateTaskBottomSheetDialog().show(supportFragmentManager, "NEW_TASK") }
-        binding?.navDrawer?.changeCornerRadius()
+        mBinding.fabAddNewTask
+            .setOnClickListener { SingleTaskBottomSheet().show(supportFragmentManager, "NEW_TASK") }
+        mBinding.navDrawer.changeCornerRadius()
 
         setupNavController()
-        fab = binding?.fabAddNewTask
+        fab = mBinding.fabAddNewTask
     }
 
     private fun setupNavController() {
@@ -40,18 +40,18 @@ class MainActivity : AppCompatActivity() {
             R.id.introFragment,
             R.id.homeFragment,
             R.id.calendarFragment,
-            R.id.savedTasksFragment,
+            R.id.favoritesTasksFragment,
             R.id.notificationsFragment,
             R.id.categoriesFragment,
-            R.id.tomorrowTasksFragment,
+            R.id.upcomingTasksFragment,
             R.id.thisWeekTasksFragment,
             R.id.allTasksFragment
         )
         mNavController =
             (supportFragmentManager.findFragmentById(R.id.nav_host_container) as NavHostFragment).navController
 
-        val appBarConfiguration = AppBarConfiguration(idSet, binding?.drawerLayout)
-        binding?.navDrawer?.setupWithNavController(mNavController)
-        binding?.toolbar?.root?.setupWithNavController(mNavController, appBarConfiguration)
+        val appBarConfiguration = AppBarConfiguration(idSet, mBinding.drawerLayout)
+        mBinding.navDrawer.setupWithNavController(mNavController)
+        mBinding.toolbar.root.setupWithNavController(mNavController, appBarConfiguration)
     }
 }

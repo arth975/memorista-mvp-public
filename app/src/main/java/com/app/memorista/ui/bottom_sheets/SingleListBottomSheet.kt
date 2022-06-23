@@ -1,11 +1,8 @@
-package com.app.memorista.ui.dialogs
+package com.app.memorista.ui.bottom_sheets
 
 import android.app.AlertDialog
-import android.app.Dialog
 import android.content.DialogInterface
-import android.content.res.Resources
 import android.os.Bundle
-import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,9 +19,6 @@ import com.app.memorista.ui.viewmodels.SingleListViewModel
 import com.app.memorista.utils.addRepeatedJob
 import com.app.memorista.utils.models.Resource
 import com.app.memorista.utils.models.TaskListEvent
-import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.skydoves.colorpickerview.ColorEnvelope
 import com.skydoves.colorpickerview.ColorPickerDialog
 import com.skydoves.colorpickerview.listeners.ColorEnvelopeListener
@@ -32,7 +26,7 @@ import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class SingleListBottomSheetDialog : ExpandedBottomSheetDialog(), DialogInterface.OnClickListener {
+class SingleListBottomSheet : ExpandedBottomSheet(), DialogInterface.OnClickListener {
 
     companion object {
         const val TAG = "SingleListFragment"

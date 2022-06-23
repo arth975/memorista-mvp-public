@@ -11,7 +11,7 @@
     android:padding="@dimen/create_category_dialog_padding">
 
     <TextView
-        android:id="@+id/text_title"
+        android:id="@+id/text_note"
         style="@style/Text.Title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/create_category_dialog_margin_name_edit_text_top"
-        app:boxBackgroundColor="@color/bg_main">
+        app:boxBackgroundColor="@color/primary_background">
 
         <EditText
             android:id="@+id/et_category_name"

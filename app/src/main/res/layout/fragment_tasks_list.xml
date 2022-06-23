@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="taskListHeader"
+            type="String" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!--Lists RecyclerView-->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_lists"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:overScrollMode="never"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_tasks_title"
+                style="@style/Home.Text.TasksTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{taskListHeader}"
+                app:layout_constraintStart_toStartOf="@id/guide_main_start"
+                app:layout_constraintTop_toBottomOf="@id/rv_lists" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_sort"
+                style="@style/Home.SortButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/home_sort_button"
+                app:layout_constraintBottom_toBottomOf="@id/text_tasks_title"
+                app:layout_constraintEnd_toEndOf="@id/guide_main_end"
+                app:layout_constraintTop_toTopOf="@id/text_tasks_title" />
+
+            <View
+                android:id="@+id/divider_rv_top"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_stroke_width"
+                android:layout_marginTop="@dimen/tasks_list_margin_divider_top"
+                android:background="@color/secondary"
+                app:layout_constraintEnd_toEndOf="@id/guide_main_end"
+                app:layout_constraintStart_toStartOf="@id/guide_main_start"
+                app:layout_constraintTop_toBottomOf="@id/text_tasks_title" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_tasks"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/home_margin_today_tasks_top"
+                android:clipToPadding="false"
+                android:overScrollMode="never"
+                android:paddingBottom="15dp"
+                app:layout_constraintEnd_toEndOf="@id/guide_main_end"
+                app:layout_constraintStart_toStartOf="@id/guide_main_start"
+                app:layout_constraintTop_toBottomOf="@id/divider_rv_top" />
+
+            <TextView
+                android:id="@+id/text_completed_tasks_title"
+                style="@style/Home.Text.TasksTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/tasks_list_margin_completed_title_top"
+                android:text="@string/tasks_list_completed_tasks_title"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@id/guide_main_start"
+                app:layout_constraintTop_toBottomOf="@id/rv_tasks" />
+
+            <View
+                android:id="@+id/divider_completed_tasks"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_stroke_width"
+                android:layout_marginTop="@dimen/tasks_list_margin_divider_top"
+                android:background="@color/secondary"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@id/guide_main_end"
+                app:layout_constraintStart_toStartOf="@id/guide_main_start"
+                app:layout_constraintTop_toBottomOf="@id/text_completed_tasks_title" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_completed_tasks"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/home_margin_today_tasks_top"
+                android:clipToPadding="false"
+                android:overScrollMode="never"
+                android:paddingBottom="15dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@id/guide_main_end"
+                app:layout_constraintStart_toStartOf="@id/guide_main_start"
+                app:layout_constraintTop_toBottomOf="@id/divider_completed_tasks" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guide_main_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="@dimen/guide_percent_main_start" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guide_main_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="@dimen/guide_percent_main_end" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

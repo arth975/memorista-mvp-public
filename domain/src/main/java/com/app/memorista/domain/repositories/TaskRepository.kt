@@ -1,13 +1,18 @@
 package com.app.memorista.domain.repositories
 
 import com.app.memorista.domain.models.Task
-import com.app.memorista.domain.models.params.TaskParams
+import com.app.memorista.domain.models.params.TaskByDateParams
 import kotlinx.coroutines.flow.Flow
-import java.time.LocalDate
 
 interface TaskRepository {
 
-    fun getFlowByDate(date: LocalDate): Flow<List<Task>>
+    fun getAll(): Flow<List<Task>>
+
+    fun getFlowByDate(params: TaskByDateParams): Flow<List<Task>>
+
+    fun getFavorites(): Flow<List<Task>>
+
+    suspend fun getById(id: Long): Task
 
     suspend fun add(task: Task)
 

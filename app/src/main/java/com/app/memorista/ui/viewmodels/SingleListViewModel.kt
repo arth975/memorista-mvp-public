@@ -6,7 +6,7 @@ import com.app.memorista.domain.usecases.list.CreateListUseCase
 import com.app.memorista.domain.usecases.list.DeleteListUseCase
 import com.app.memorista.domain.usecases.list.GetListWithTasksUseCase
 import com.app.memorista.domain.usecases.list.UpdateListUseCase
-import com.app.memorista.domain.utils.ResultOf
+import com.app.memorista.domain.utils.BaseResult
 import com.app.memorista.mappers.toDomain
 import com.app.memorista.mappers.toUI
 import com.app.memorista.models.ListWithTasksUI
@@ -34,12 +34,12 @@ class SingleListViewModel(
     fun fetchListWithTasks(id: Long) {
         viewModelScope.launch {
             when (val result = getListWithTasks(id)) {
-                is ResultOf.Success ->
+                is BaseResult.Success ->
                     result.data.collect { listWithTasks ->
                         mListWithTasksFlow.value = Resource.success(listWithTasks.toUI())
                         mEventFlow.value = TaskListEvent.initial(listWithTasks.list.toUI())
                     }
-                is ResultOf.Error ->
+                is BaseResult.Error ->
                     mListWithTasksFlow.value = Resource.error(result.exception)
             }
         }

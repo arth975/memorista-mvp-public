@@ -12,8 +12,6 @@
     <color name="primaryVariant">#123D78</color>
     <color name="onPrimary">#ffffff</color>
 
-    <color name="primary_background">#FFF6F6</color>
-
     <color name="main">#1E1D1D</color>
     <color name="secondary">#CDCDCD</color>
     <color name="nav_drawer_item_background">#5ECDCDCD</color>
@@ -27,7 +25,7 @@
 
     <color name="orange">#FF4D00</color>
 
-    <color name="bg_main">#ffffff</color>
+    <color name="primary_background">#FFFFFF</color>
     <color name="bg_secondary_1">#EAEAEA</color>
     <color name="bg_secondary_2">#F0F0F0</color>
     <color name="bg_secondary_3">#F1F1F1</color>
@@ -35,7 +33,7 @@
 
     <color name="accent">#234B82</color>
     <color name="accent_1">#FF4D00</color>
-    <color name="accent_2">#2B8D13</color>
+    <color name="accent_2">#53B332</color>
 
     <color name="shadow_ambient">#AEC6C6C6</color>
     <color name="shadow_spot">#B2B6B5B5</color>

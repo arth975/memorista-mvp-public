@@ -13,5 +13,6 @@ data class TaskUI(
     val taskDate: LocalDate?,
     val alarmTime: LocalTime?,
     val priority: PriorityUI?,
-    val isActive: Boolean
+    val isActive: Boolean,
+    val isFavorite: Boolean = false
 )
